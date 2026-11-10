@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portofolio M. Rifki Rivaldi, Tech & IoT Specialist yang berfokus pada web development, IoT, jaringan, dan desain digital."
+    />
+    <meta name="theme-color" content="#f8f9ff" />
+    <title>M. Rifki Rivaldi — Tech & IoT Specialist</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./src/styles/main.css" />
+
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem('site-theme');
+          document.documentElement.dataset.theme = savedTheme === 'galaxy' ? 'galaxy' : 'light';
+        } catch (_) {}
+      })();
+    </script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script type="module" src="./src/scripts/main.js"></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+
+    <div class="cosmic-nebula" aria-hidden="true">
+      <span class="nebula nebula--violet"></span>
+      <span class="nebula nebula--cyan"></span>
+      <span class="nebula nebula--core"></span>
+    </div>
+    <canvas id="galaxy-canvas" class="galaxy-canvas" aria-hidden="true"></canvas>
+    <div class="atmosphere" aria-hidden="true">
+      <span class="aura aura--one"></span>
+      <span class="aura aura--two"></span>
+      <span class="aura aura--three"></span>
+      <span class="liquid-orb liquid-orb--one"></span>
+      <span class="liquid-orb liquid-orb--two"></span>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header glass" data-header>
+        <a class="brand" href="#home" aria-label="M. Rifki Rivaldi — beranda">
+          <span class="brand__mark">R</span>
+          <span class="brand__copy">
+            <strong>M. Rifki Rivaldi</strong>
+            <small>Tech & IoT Specialist</small>
+          </span>
+        </a>
+
+        <button
+          class="icon-button menu-toggle"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          data-menu-toggle
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <nav id="primary-navigation" class="primary-nav" aria-label="Navigasi utama" data-nav>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Work</a>
+          <a href="#process">Process</a>
+          <a href="#certificates">Certificates</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            id="theme-toggle"
+            class="theme-toggle glass-control"
+            type="button"
+            aria-label="Aktifkan Galaxy Dark Mode"
+            aria-pressed="false"
+          >
+            <i class="fa-solid fa-sun" aria-hidden="true" data-theme-icon></i>
+            <span data-theme-label>Light</span>
+          </button>
+          <a class="button button--primary button--compact" href="#contact">
+            Let's Talk <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+        </div>
+      </header>
+
+      <main id="main-content">
+        <section id="home" class="hero section" aria-labelledby="hero-title">
+          <div class="hero__content reveal">
+            <p class="eyebrow glass-control">
+              <i class="fa-solid fa-sparkles" aria-hidden="true"></i>
+              Hello, I'm
+            </p>
+            <div>
+              <h1 id="hero-title">M. Rifki Rivaldi</h1>
+              <p class="hero__role">Tech & IoT Specialist <span>•</span> Web Developer</p>
+            </div>
+            <p class="hero__intro">
+              Profesional Teknologi Informasi yang merancang solusi web, IoT, dan sistem digital
+              dengan fokus pada performa, keamanan, dan dampak operasional nyata.
+            </p>
+            <div class="button-row">
+              <a class="button button--primary" href="#projects">
+                View My Work <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+              <a
+                class="button button--secondary glass-control"
+                href="https://drive.google.com/file/d/1hJViwS3L62vyGMZkTJp3L9BaOtawLG6c/view?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Download CV <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="social-proof">
+              <span>Connected with:</span>
+              <div id="social-links" class="social-links"></div>
+            </div>
+          </div>
+
+          <div class="hero__visual reveal" data-delay="1">
+            <div class="portrait-arch glass">
+              <span class="portrait-arch__glow" aria-hidden="true"></span>
+              <img
+                src="./src/assets/profile-rifki.png"
+                alt="M. Rifki Rivaldi"
+                width="640"
+                height="860"
+                fetchpriority="high"
+              />
+            </div>
+            <div class="metric-card metric-card--credential glass">
+              <div><strong>6+</strong><i class="fa-solid fa-award" aria-hidden="true"></i></div>
+              <span>Official<br />Credentials</span>
+            </div>
+            <span class="spark-orb glass" aria-hidden="true"><i class="fa-solid fa-sparkles"></i></span>
+            <div class="metric-card metric-card--impact glass">
+              <div><span>Design & Tech Impact</span><strong>+100%</strong></div>
+              <svg viewBox="0 0 120 30" role="img" aria-label="Tren dampak meningkat">
+                <path d="M0 24Q25 27 45 15T85 16T115 5"></path>
+                <circle cx="115" cy="5" r="3.5"></circle>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <div class="marquee glass" aria-label="Keahlian utama">
+          <div id="skills-marquee" class="marquee__track"></div>
+        </div>
+
+        <section id="about" class="section section-card glass reveal" aria-labelledby="about-title">
+          <div class="about__summary">
+            <p class="section-kicker">About Me</p>
+            <h2 id="about-title">Designing with Logic<br />Building with Purpose</h2>
+            <div id="stats-grid" class="stats-grid"></div>
+          </div>
+          <div class="about__copy">
+            <p>
+              Profesional di bidang Teknologi Informasi, Web Development, administrasi e-commerce,
+              dan pengelolaan data. Berpengalaman membangun website modern serta memonitor data
+              operasional untuk meningkatkan efisiensi proses bisnis.
+            </p>
+            <p>
+              Menguasai HTML, CSS, JavaScript, React, Three.js, database, Google Spreadsheet, dan
+              mikrokontroler IoT seperti Arduino serta ESP32. Terbiasa melakukan analisis,
+              troubleshooting, dokumentasi, dan integrasi sistem dengan teliti.
+            </p>
+            <div class="about__action">
+              <a class="button button--primary" href="#contact">
+                More About Me <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+              <q>Whoever strives shall succeed.</q>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" class="section reveal" aria-labelledby="services-title">
+          <div class="section-heading">
+            <p class="section-kicker">What I Do</p>
+            <h2 id="services-title">Services & Specialized Skills</h2>
+          </div>
+          <div id="services-grid" class="services-grid"></div>
+        </section>
+
+        <section class="section reveal" aria-labelledby="tools-title">
+          <div class="section-heading">
+            <p class="section-kicker">Tools & Skills</p>
+            <h2 id="tools-title">Technologies I Use</h2>
+          </div>
+          <div id="tools-grid" class="tools-grid"></div>
+        </section>
+
+        <section id="projects" class="section reveal" aria-labelledby="projects-title">
+          <div class="section-heading section-heading--split">
+            <div>
+              <p class="section-kicker">Featured Projects</p>
+              <h2 id="projects-title">Selected Work</h2>
+            </div>
+            <a class="text-link" href="https://github.com/MRIFKIRIVALDI" target="_blank" rel="noreferrer">
+              View All Projects <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div id="projects-grid" class="projects-grid"></div>
+        </section>
+
+        <div class="marquee glass" aria-label="Nilai profesional">
+          <div id="values-marquee" class="marquee__track marquee__track--reverse"></div>
+        </div>
+
+        <section id="process" class="section reveal" aria-labelledby="process-title">
+          <div class="section-heading">
+            <p class="section-kicker">My Process</p>
+            <h2 id="process-title">Engineering & Design Process</h2>
+          </div>
+          <div id="process-grid" class="process-grid"></div>
+        </section>
+
+        <section id="certificates" class="section reveal" aria-labelledby="certificates-title">
+          <div class="section-heading">
+            <p class="section-kicker">Credentials</p>
+            <h2 id="certificates-title">Official Certifications</h2>
+          </div>
+          <div id="certificates-grid" class="certificates-grid"></div>
+        </section>
+
+        <section id="contact" class="section contact glass reveal" aria-labelledby="contact-title">
+          <div class="contact__info">
+            <p class="section-kicker">Let's Connect</p>
+            <h2 id="contact-title">Have a project in mind?<br />Let's create something amazing together.</h2>
+            <div class="contact-list">
+              <a class="contact-item glass-tile" href="mailto:rifki200804@gmail.com">
+                <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                <span><small>Email</small><strong>rifki200804@gmail.com</strong></span>
+              </a>
+              <a class="contact-item glass-tile" href="https://wa.me/6281296876716" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <span><small>WhatsApp / Call</small><strong>+62 812-9687-6716</strong></span>
+              </a>
+              <div class="contact-item glass-tile">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <span><small>Location</small><strong>Indonesia</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <form id="contact-form" class="contact-form">
+            <div class="form-row">
+              <label>
+                <span>Nama</span>
+                <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Nama Anda" required />
+              </label>
+              <label>
+                <span>Email</span>
+                <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="email@contoh.com" required />
+              </label>
+            </div>
+            <label>
+              <span>Layanan</span>
+              <select id="contact-service" name="service">
+                <option>Web Development</option>
+                <option>Internet of Things</option>
+                <option>Network Infrastructure & Security</option>
+                <option>UI/UX & Graphic Design</option>
+                <option>AppSheet & Data Management</option>
+              </select>
+            </label>
+            <label>
+              <span>Pesan</span>
+              <textarea id="contact-message" name="message" rows="5" placeholder="Ceritakan kebutuhan proyek Anda..." required></textarea>
+            </label>
+            <button class="button button--primary button--full" type="submit">
+              Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            </button>
+          </form>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <a class="brand brand--footer" href="#home">
+          <span class="brand__mark">R</span>
+          <span>© <span data-current-year></span> M. Rifki Rivaldi.</span>
+        </a>
+        <nav aria-label="Navigasi footer">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Projects</a>
+          <a href="#certificates">Certificates</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>

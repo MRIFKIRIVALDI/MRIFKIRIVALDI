@@ -1,0 +1,4 @@
+dist/
+outputs/
+preview-*.png
+qa-*.png
