@@ -16,11 +16,12 @@ const setHTML = (selector, markup) => {
 };
 
 const icon = (className) => `<i class="${className}" aria-hidden="true"></i>`;
+const assetImage = (source, alt, className = '') => `<img class="${className}" src="${source}" alt="${alt}" loading="lazy" decoding="async" />`;
 
 export function renderContent() {
   setHTML('#social-links', socialLinks.map((item) => `
     <a href="${item.url}" target="_blank" rel="noreferrer" aria-label="${item.label}">
-      ${icon(item.icon)}<span>${item.label}</span>
+      ${item.image ? assetImage(item.image, '', 'social-links__icon') : icon(item.icon)}<span>${item.label}</span>
     </a>
   `).join(''));
 
@@ -51,7 +52,10 @@ export function renderContent() {
     <article class="project-card glass-tile accent-${item.accent}">
       <div class="project-card__body">
         <div class="project-card__visual">
-          ${icon(item.icon)}<span>${item.badge}</span>
+          <div class="project-card__media project-card__media--${Math.min(item.images?.length || 0, 3)}">
+            ${(item.images || []).map((source, imageIndex) => assetImage(source, `Tampilan ${item.title} ${imageIndex + 1}`)).join('')}
+          </div>
+          <span>${item.badge}</span>
         </div>
         <div class="project-card__meta"><span>${item.category}</span><small>${String(index + 1).padStart(2, '0')}</small></div>
         <h3>${item.title}</h3>
@@ -75,7 +79,9 @@ export function renderContent() {
 
   setHTML('#certificates-grid', certificates.map((item) => `
     <article class="certificate-card glass-tile accent-${item.accent}">
-      <span class="card-icon">${icon(item.icon)}</span>
+      <a class="certificate-card__preview" href="${item.image}" target="_blank" rel="noreferrer" aria-label="Lihat sertifikat ${item.title}">
+        ${assetImage(item.image, `Sertifikat ${item.title}`)}
+      </a>
       <div><small>${item.issuer}</small><h3>${item.title}</h3><p>${item.detail}</p></div>
     </article>
   `).join(''));

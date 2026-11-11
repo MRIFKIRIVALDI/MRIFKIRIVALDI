@@ -13,5 +13,6 @@ await rm(outputDirectory, { recursive: true, force: true });
 await mkdir(outputDirectory, { recursive: true });
 await cp(join(projectRoot, 'index.html'), join(outputDirectory, 'index.html'));
 await cp(join(projectRoot, 'src'), join(outputDirectory, 'src'), { recursive: true });
+await cp(join(projectRoot, 'images'), join(outputDirectory, 'images'), { recursive: true });
 
 console.log(`Static build siap di ${outputDirectory}`);

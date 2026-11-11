@@ -112,17 +112,23 @@
 
           <div class="hero__visual reveal" data-delay="1">
             <span class="hero__portfolio-word" aria-hidden="true">PORTFOLIO</span>
-            <div class="robot-stage" data-robot-stage>
+            <div
+              class="robot-stage"
+              data-robot-stage
+              role="button"
+              tabindex="0"
+              aria-label="Robot astronot interaktif. Gerakkan pointer atau tekan Enter untuk menyapa."
+            >
               <span class="robot-stage__orb robot-stage__orb--violet" aria-hidden="true"></span>
               <span class="robot-stage__orb robot-stage__orb--cyan" aria-hidden="true"></span>
               <canvas
                 id="hero-robot-canvas"
                 class="hero-robot-canvas"
                 role="img"
-                aria-label="Robot 3D futuristik dengan animasi mengambang"
+                aria-label="Robot astronot 3D interaktif dengan animasi mengambang"
               ></canvas>
               <div class="robot-status glass-control" aria-hidden="true">
-                <span></span> Interactive 3D
+                <span></span><b data-robot-status-text> Astro Unit • Online</b>
               </div>
               <div class="metric-card metric-card--credential glass">
                 <div><strong>6+</strong><i class="fa-solid fa-award" aria-hidden="true"></i></div>
@@ -174,6 +180,9 @@
             <p class="section-kicker">About Me</p>
             <h2 id="about-title">Designing with Logic<br />Building with Purpose</h2>
             <div id="stats-grid" class="stats-grid"></div>
+            <figure class="about-profile glass-tile" aria-label="Foto M. Rifki Rivaldi">
+              <img src="./images/foto_diri_nobg.png" alt="M. Rifki Rivaldi" loading="lazy" decoding="async" />
+            </figure>
           </div>
           <div class="about__copy">
             <p style="text-align: justify;">
@@ -243,15 +252,15 @@
             <h2 id="contact-title">Have a project in mind?<br />Let's create something amazing together.</h2>
             <div class="contact-list">
               <a class="contact-item glass-tile" href="mailto:rifki200804@gmail.com">
-                <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                <img class="contact-item__icon" src="./images/logo/logo email.png" alt="" />
                 <span><small>Email</small><strong>rifki200804@gmail.com</strong></span>
               </a>
               <a class="contact-item glass-tile" href="https://wa.me/6281296876716" target="_blank" rel="noreferrer">
-                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <img class="contact-item__icon" src="./images/logo/logo wa.png" alt="" />
                 <span><small>WhatsApp / Call</small><strong>+62 812-9687-6716</strong></span>
               </a>
               <div class="contact-item glass-tile">
-                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <img class="contact-item__icon" src="./images/logo/logo maps.png" alt="" />
                 <span><small>Location</small><strong>Indonesia</strong></span>
               </div>
             </div>

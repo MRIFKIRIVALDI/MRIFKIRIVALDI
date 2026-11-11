@@ -256,6 +256,8 @@
 }
 
 .social-links a:hover { color: var(--primary); transform: translateY(-2px); }
+.social-links__icon { width: 16px; height: 16px; object-fit: contain; filter: saturate(0.75); }
+[data-theme='galaxy'] .social-links__icon { filter: brightness(1.35) saturate(0.65); }
 
 .hero__visual {
   position: relative;
@@ -293,7 +295,13 @@
   height: 570px;
   margin: 0 auto;
   overflow: visible;
+  cursor: grab;
+  outline: none;
 }
+
+.robot-stage:active { cursor: grabbing; }
+.robot-stage:focus-visible::before { outline: 2px solid var(--primary); outline-offset: 5px; }
+.robot-stage.is-responding::before { box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.25), 0 0 70px -20px rgba(34, 211, 238, 0.7); }
 
 .robot-stage::before {
   position: absolute;
@@ -332,6 +340,7 @@
 
 .robot-stage.is-ready .hero-robot-canvas { opacity: 1; }
 .robot-stage.is-galaxy .hero-robot-canvas { filter: drop-shadow(0 34px 34px rgba(34, 211, 238, 0.14)); }
+.robot-stage.is-responding .hero-robot-canvas { filter: drop-shadow(0 0 38px rgba(129, 140, 248, 0.42)); }
 
 .robot-stage.is-fallback::after {
   position: absolute;
@@ -377,6 +386,8 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+.robot-status b { font: inherit; }
 
 .robot-status span {
   width: 6px;
@@ -463,6 +474,18 @@
 .about__action { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.4rem; }
 .about__action q { color: var(--text-muted); font-size: 0.72rem; font-style: italic; }
 
+.about-profile {
+  position: relative;
+  height: 190px;
+  margin: 1rem 0 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at 50% 25%, color-mix(in srgb, var(--primary), transparent 72%), transparent 68%);
+}
+
+.about-profile::after { position: absolute; right: 12%; bottom: 10%; left: 12%; height: 22px; border-radius: 50%; content: ''; background: rgba(15, 23, 42, 0.25); filter: blur(14px); }
+.about-profile img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: contain; object-position: center 8%; }
+
 .services-grid,
 .projects-grid,
 .certificates-grid {
@@ -522,12 +545,9 @@
 
 .project-card__body { padding: 1.3rem; }
 .project-card__visual {
+  position: relative;
   display: flex;
   height: 180px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.75rem;
   margin-bottom: 1.25rem;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -535,9 +555,12 @@
   background: radial-gradient(circle at 25% 15%, color-mix(in srgb, var(--accent), transparent 77%), transparent 62%), color-mix(in srgb, var(--accent), transparent 94%);
 }
 
-.project-card__visual > i { color: var(--accent); font-size: 2.6rem; transition: transform 0.35s ease; }
-.project-card:hover .project-card__visual > i { transform: translateY(-4px) scale(1.08); }
-.project-card__visual > span { padding: 0.35rem 0.7rem; border-radius: 999px; color: var(--text); background: var(--surface-strong); font-size: 0.56rem; font-weight: 700; }
+.project-card__media { display: grid; width: 100%; height: 100%; gap: 2px; background: color-mix(in srgb, var(--accent), transparent 88%); }
+.project-card__media img { width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: cover; transition: transform 0.5s ease, filter 0.5s ease; }
+.project-card__media--2 { grid-template-columns: repeat(2, 1fr); }
+.project-card__media--3 { grid-template-columns: repeat(3, 1fr); }
+.project-card:hover .project-card__media img { transform: scale(1.035); filter: saturate(1.08); }
+.project-card__visual > span { position: absolute; right: 0.7rem; bottom: 0.7rem; padding: 0.35rem 0.7rem; border: 1px solid var(--border); border-radius: 999px; color: var(--text); background: var(--surface-strong); box-shadow: var(--shadow-glass); font-size: 0.56rem; font-weight: 700; backdrop-filter: blur(12px); }
 .project-card__meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.55rem; }
 .project-card__meta span { color: var(--accent); font-size: 0.57rem; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; }
 .project-card__meta small { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.57rem; }
@@ -559,8 +582,10 @@
 .process-card > div span { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.63rem; font-weight: 700; }
 .process-card p { margin: 0.55rem 0 0; color: var(--text-muted); font-size: 0.67rem; line-height: 1.6; }
 
-.certificate-card { grid-column: span 4; display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; border-radius: var(--radius-md); }
-.certificate-card .card-icon { width: 44px; height: 44px; flex: 0 0 44px; border-radius: 14px; }
+.certificate-card { grid-column: span 4; display: grid; grid-template-columns: 108px 1fr; align-items: center; gap: 1rem; min-height: 112px; padding: 0.75rem; border-radius: var(--radius-md); }
+.certificate-card__preview { display: block; width: 108px; height: 76px; overflow: hidden; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-soft); }
+.certificate-card__preview img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+.certificate-card__preview:hover img { transform: scale(1.06); }
 .certificate-card small { display: block; margin-bottom: 0.15rem; color: var(--accent); font-size: 0.55rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 .certificate-card h3 { font-size: 0.84rem; }
 .certificate-card p { margin: 0.2rem 0 0; color: var(--text-muted); font-size: 0.62rem; }
@@ -578,7 +603,7 @@
 .contact h2 { font-size: clamp(1.55rem, 3vw, 2.25rem); }
 .contact-list { display: grid; gap: 0.7rem; margin-top: 2rem; }
 .contact-item { display: flex; align-items: center; gap: 0.8rem; padding: 0.75rem; border-radius: 16px; }
-.contact-item > i { display: grid; width: 38px; height: 38px; place-items: center; flex: 0 0 38px; border-radius: 12px; color: var(--primary); background: color-mix(in srgb, var(--primary), transparent 89%); }
+.contact-item__icon { width: 38px; height: 38px; flex: 0 0 38px; padding: 8px; border-radius: 12px; object-fit: contain; background: color-mix(in srgb, var(--primary), transparent 89%); }
 .contact-item span { display: flex; min-width: 0; flex-direction: column; }
 .contact-item small { color: var(--text-muted); font-size: 0.54rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 .contact-item strong { overflow: hidden; font-size: 0.72rem; text-overflow: ellipsis; }
