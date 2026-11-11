@@ -23,13 +23,37 @@
   }
   .primary-nav.is-open { max-height: 520px; padding-block: 0.8rem; border-width: 1px; opacity: 1; transform: none; }
   .primary-nav a { padding: 0.8rem 1rem; font-size: 0.76rem; }
-  .hero { grid-template-columns: minmax(0, 7fr) minmax(310px, 5fr); }
-  .portrait-arch { height: 470px; }
+  .hero {
+    grid-template-columns: minmax(180px, 0.85fr) minmax(330px, 1.25fr) minmax(210px, 0.9fr);
+    gap: 1rem;
+  }
+  .hero__identity h1 { font-size: clamp(2.7rem, 5.1vw, 3.8rem); }
+  .robot-stage { height: 520px; }
+  .metric-card--credential { right: 0; }
+  .metric-card--impact { right: 0; }
   .service-card { grid-column: span 6; min-height: 265px; }
   .tools-grid { grid-template-columns: repeat(4, 1fr); }
   .project-card { grid-column: span 6; }
   .process-grid { grid-template-columns: repeat(3, 1fr); }
   .process-card::after { display: none; }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-areas:
+      'identity summary'
+      'robot robot'
+      'social social';
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 2.5rem;
+    padding-top: 5.5rem;
+  }
+  .hero__identity h1 { max-width: 9ch; }
+  .hero__summary { justify-self: end; }
+  .hero__visual { width: min(100%, 620px); margin: -1.5rem auto -2rem; }
+  .robot-stage { height: 510px; }
+  .hero__portfolio-word { font-size: clamp(7rem, 22vw, 11rem); }
+  .hero__social { margin-top: 0; }
 }
 
 @media (max-width: 780px) {
@@ -43,13 +67,28 @@
   .theme-toggle::after { content: '☀'; color: var(--amber); font-size: 0.9rem; }
   [data-theme='galaxy'] .theme-toggle::after { content: '☾'; color: var(--violet); font-size: 1.05rem; }
   .theme-toggle i { display: none; }
-  .hero { grid-template-columns: 1fr; gap: 3.5rem; min-height: auto; padding-top: 5rem; }
-  .hero__content { align-items: center; text-align: center; }
+  .hero {
+    grid-template-areas:
+      'identity'
+      'robot'
+      'summary'
+      'social';
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    min-height: auto;
+    padding-top: 5rem;
+  }
+  .hero::before { inset-inline: -1rem; }
+  .hero__identity,
+  .hero__summary { align-items: center; justify-self: center; text-align: center; }
+  .hero__identity h1 { max-width: none; }
+  .hero__role { max-width: 20ch; }
   .hero__intro { max-width: 580px; }
   .social-proof { justify-content: center; }
   .social-links { justify-content: center; }
-  .hero__visual { width: min(100%, 460px); margin: 0 auto; }
-  .portrait-arch { width: min(100%, 350px); height: 460px; }
+  .hero__visual { width: min(100%, 540px); margin: -2rem auto -1rem; }
+  .robot-stage { height: 500px; }
+  .hero__portfolio-word { font-size: clamp(6rem, 25vw, 10rem); }
   .section-card,
   .contact { grid-template-columns: 1fr; }
   .service-card { grid-column: span 6; }
@@ -64,16 +103,22 @@
   .site-header { top: 0.6rem; }
   .brand__copy strong { max-width: 112px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   h1 { max-width: 100%; font-size: clamp(2.35rem, 10.8vw, 3rem); overflow-wrap: anywhere; }
-  .hero__role { max-width: 100%; font-size: clamp(1.35rem, 7vw, 1.85rem); overflow-wrap: anywhere; }
+  .hero__identity,
+  .hero__summary { width: min(100%, 350px); }
+  .hero__identity h1 { max-width: 8ch; font-size: clamp(2.45rem, 10.5vw, 3rem); }
+  .hero__role { max-width: 15ch; font-size: clamp(1.24rem, 5.8vw, 1.55rem); overflow-wrap: normal; }
+  .hero__intro { max-width: 34ch; }
   .button-row { width: 100%; justify-content: center; }
   .social-links span { display: none; }
   .social-links a { font-size: 1rem; }
-  .hero__visual { padding-inline: 0.4rem; }
-  .portrait-arch { height: 420px; }
-  .metric-card--credential { right: -0.2rem; min-width: 98px; padding: 0.75rem; }
+  .hero__visual { width: min(100%, 360px); }
+  .robot-stage { width: 100%; height: 430px; }
+  .hero__portfolio-word { top: 46%; font-size: clamp(5.2rem, 27vw, 7.5rem); }
+  .robot-status { top: 11%; left: 0.2rem; }
+  .metric-card--credential { top: 8%; right: 0; min-width: 92px; padding: 0.7rem; }
   .metric-card--credential strong { font-size: 1.5rem; }
-  .metric-card--impact { right: -0.2rem; width: 175px; }
-  .spark-orb { left: -0.4rem; }
+  .metric-card--impact { right: 0; bottom: 5%; width: 145px; }
+  .hero__social { width: min(100%, 360px); padding-inline: 0.9rem; }
   .section-card,
   .contact { padding: 1.35rem; border-radius: 26px; }
   .stats-grid { gap: 0.45rem; }

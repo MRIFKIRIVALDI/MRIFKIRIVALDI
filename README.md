@@ -31,6 +31,7 @@ node scripts/build.mjs
 │   │   └── profile-rifki.png   # Foto profil lokal
 │   ├── scripts/
 │   │   ├── main.js             # Bootstrap, navigasi, form, reveal animation
+│   │   ├── hero-robot.js       # Robot 3D procedural dan animasi Hero
 │   │   ├── render.js           # Template komponen berbasis data
 │   │   ├── theme.js            # Light/Galaxy theme + localStorage
 │   │   └── galaxy.js           # Three.js starfield + mouse parallax
@@ -53,4 +54,4 @@ node scripts/build.mjs
 - Ubah email tujuan pada handler formulir di `src/scripts/main.js`.
 - Ganti `src/assets/profile-rifki.png` untuk memperbarui foto tanpa mengubah markup.
 
-Theme tersimpan dengan key `site-theme`. Animasi Three.js hanya berjalan saat Galaxy Mode aktif dan otomatis berhenti saat pengguna memilih reduced motion.
+Theme tersimpan dengan key `site-theme`. Starfield berjalan saat Galaxy Mode aktif, sedangkan robot 3D Hero berjalan hanya ketika terlihat di viewport. Keduanya menghormati preferensi reduced motion.

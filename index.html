@@ -101,15 +101,45 @@
 
       <main id="main-content">
         <section id="home" class="hero section" aria-labelledby="hero-title">
-          <div class="hero__content reveal">
+          <div class="hero__identity reveal">
             <p class="eyebrow glass-control">
               <i class="fa-solid fa-sparkles" aria-hidden="true"></i>
               Hello, I'm
             </p>
-            <div>
-              <h1 id="hero-title">M. Rifki Rivaldi</h1>
-              <p class="hero__role">Tech & IoT Specialist <span>•</span> Web Developer</p>
+            <h1 id="hero-title">M. Rifki Rivaldi</h1>
+            <p class="hero__role">Tech & IoT Specialist <span>•</span> Web Developer</p>
+          </div>
+
+          <div class="hero__visual reveal" data-delay="1">
+            <span class="hero__portfolio-word" aria-hidden="true">PORTFOLIO</span>
+            <div class="robot-stage" data-robot-stage>
+              <span class="robot-stage__orb robot-stage__orb--violet" aria-hidden="true"></span>
+              <span class="robot-stage__orb robot-stage__orb--cyan" aria-hidden="true"></span>
+              <canvas
+                id="hero-robot-canvas"
+                class="hero-robot-canvas"
+                role="img"
+                aria-label="Robot 3D futuristik dengan animasi mengambang"
+              ></canvas>
+              <div class="robot-status glass-control" aria-hidden="true">
+                <span></span> Interactive 3D
+              </div>
+              <div class="metric-card metric-card--credential glass">
+                <div><strong>6+</strong><i class="fa-solid fa-award" aria-hidden="true"></i></div>
+                <span>Official<br />Credentials</span>
+              </div>
+              <div class="metric-card metric-card--impact glass">
+                <div><span>Design & Tech Impact</span><strong>+100%</strong></div>
+                <svg viewBox="0 0 120 30" role="img" aria-label="Tren dampak meningkat">
+                  <path d="M0 24Q25 27 45 15T85 16T115 5"></path>
+                  <circle cx="115" cy="5" r="3.5"></circle>
+                </svg>
+              </div>
             </div>
+          </div>
+
+          <div class="hero__summary reveal" data-delay="1">
+            <p class="hero__summary-label">Digital solutions, engineered with purpose.</p>
             <p class="hero__intro">
               Profesional Teknologi Informasi yang merancang solusi web, IoT, dan sistem digital
               dengan fokus pada performa, keamanan, dan dampak operasional nyata.
@@ -127,35 +157,11 @@
                 Download CV <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
               </a>
             </div>
-            <div class="social-proof">
-              <span>Connected with:</span>
-              <div id="social-links" class="social-links"></div>
-            </div>
           </div>
 
-          <div class="hero__visual reveal" data-delay="1">
-            <div class="portrait-arch glass">
-              <span class="portrait-arch__glow" aria-hidden="true"></span>
-              <img
-                src="./src/assets/profile-rifki.png"
-                alt="M. Rifki Rivaldi"
-                width="640"
-                height="860"
-                fetchpriority="high"
-              />
-            </div>
-            <div class="metric-card metric-card--credential glass">
-              <div><strong>6+</strong><i class="fa-solid fa-award" aria-hidden="true"></i></div>
-              <span>Official<br />Credentials</span>
-            </div>
-            <span class="spark-orb glass" aria-hidden="true"><i class="fa-solid fa-sparkles"></i></span>
-            <div class="metric-card metric-card--impact glass">
-              <div><span>Design & Tech Impact</span><strong>+100%</strong></div>
-              <svg viewBox="0 0 120 30" role="img" aria-label="Tren dampak meningkat">
-                <path d="M0 24Q25 27 45 15T85 16T115 5"></path>
-                <circle cx="115" cy="5" r="3.5"></circle>
-              </svg>
-            </div>
+          <div class="hero__social social-proof glass-control reveal">
+            <span>Connected with:</span>
+            <div id="social-links" class="social-links"></div>
           </div>
         </section>
 
@@ -170,15 +176,8 @@
             <div id="stats-grid" class="stats-grid"></div>
           </div>
           <div class="about__copy">
-            <p>
-              Profesional di bidang Teknologi Informasi, Web Development, administrasi e-commerce,
-              dan pengelolaan data. Berpengalaman membangun website modern serta memonitor data
-              operasional untuk meningkatkan efisiensi proses bisnis.
-            </p>
-            <p>
-              Menguasai HTML, CSS, JavaScript, React, Three.js, database, Google Spreadsheet, dan
-              mikrokontroler IoT seperti Arduino serta ESP32. Terbiasa melakukan analisis,
-              troubleshooting, dokumentasi, dan integrasi sistem dengan teliti.
+            <p style="text-align: justify;">
+              Software Engineer & Digital Specialist dengan pengalaman lebih dari 2 tahun dalam pengembangan web, pengelolaan database, dan optimalisasi sistem operasional. Berpengalaman merancang dan mendeploy berbagai proyek web menggunakan Laravel dan React, didukung keahlian mendalam di bidang IT Support, administrasi digital, serta desain grafis. Memiliki pola pikir analitis yang kuat, ketelitian tinggi, serta terbiasa menyelesaikan kompleksitas teknis untuk mendorong efisiensi operasional dan inovasi solusi teknologi perusahaan.
             </p>
             <div class="about__action">
               <a class="button button--primary" href="#contact">

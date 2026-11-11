@@ -1,11 +1,16 @@
 import { createGalaxyController } from './galaxy.js';
+import { createHeroRobot } from './hero-robot.js';
 import { renderContent } from './render.js';
 import { initTheme } from './theme.js';
 
 renderContent();
 
 const galaxy = createGalaxyController();
-initTheme((isGalaxy) => galaxy.setActive(isGalaxy));
+const heroRobot = createHeroRobot();
+initTheme((isGalaxy) => {
+  galaxy.setActive(isGalaxy);
+  heroRobot.setGalaxyMode(isGalaxy);
+});
 
 document.querySelectorAll('[data-current-year]').forEach((element) => {
   element.textContent = new Date().getFullYear();
