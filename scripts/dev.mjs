@@ -1,12 +1,10 @@
-import './build.mjs';
 import { createReadStream, statSync } from 'node:fs';
-import { rm } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import { dirname, extname, join, normalize, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const publicRoot = join(projectRoot, 'dist');
+const publicRoot = projectRoot;
 const port = Number(process.env.PORT || 4173);
 const mimeTypes = {
   '.css': 'text/css; charset=utf-8',
@@ -38,22 +36,9 @@ const server = createServer((request, response) => {
   }
 });
 
-const cleanBuildOutput = () => rm(publicRoot, { recursive: true, force: true });
-
-const shutdown = () => {
-  server.close(async () => {
-    await cleanBuildOutput();
-    process.exit(0);
-  });
-};
-
-process.once('SIGINT', shutdown);
-process.once('SIGTERM', shutdown);
-
-server.on('error', async (error) => {
+server.on('error', (error) => {
   if (error.code === 'EADDRINUSE') {
     console.error(`Port ${port} sedang digunakan. Tutup preview lama atau jalankan dengan: $env:PORT=4174; npm.cmd run dev`);
-    await cleanBuildOutput();
     process.exitCode = 1;
     return;
   }

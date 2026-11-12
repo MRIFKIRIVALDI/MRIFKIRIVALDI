@@ -8,7 +8,7 @@ Portofolio statis berbasis HTML, CSS modular, JavaScript ES Modules, dan Three.j
 npm.cmd run check     # Cek sintaks, aset, CSS import, id, anchor, dan hosting config
 npm.cmd run build     # Buat output deployment sementara di dist/
 npm.cmd run clean     # Hapus output build sementara
-npm.cmd run dev       # Preview; dist/ dibersihkan saat server ditutup normal
+npm.cmd run dev       # Preview source langsung tanpa membuat dist/
 npm.cmd run validate  # Check, build, lalu bersihkan dist/ otomatis
 ```
 
@@ -43,7 +43,7 @@ Tidak ada package eksternal yang perlu di-install. `package.json` hanya menyedia
 └── package.json                 # Perintah kerja proyek
 ```
 
-`dist/` tidak termasuk struktur source. Folder tersebut hanya dibuat sementara saat `build`, `dev`, atau proses deployment, lalu dibersihkan kembali agar Explorer tetap menampilkan satu `src/` dan satu `index.html`.
+`dist/` tidak termasuk struktur source. Folder tersebut hanya dibuat sementara saat `build` atau proses deployment, lalu dibersihkan kembali agar Explorer tetap menampilkan satu `src/` dan satu `index.html`. Perintah `dev` melayani source root secara langsung.
 
 ## Panduan revisi cepat
 

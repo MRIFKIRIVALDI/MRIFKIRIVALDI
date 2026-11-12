@@ -49,13 +49,15 @@ const index = await readFile(join(projectRoot, 'index.html'), 'utf8');
 const content = await readFile(join(projectRoot, 'src/data/content.js'), 'utf8');
 const mainCss = await readFile(join(projectRoot, 'src/styles/main.css'), 'utf8');
 const references = new Set([...index.matchAll(/["'](\.\/(?:assets|src)\/[^"']+)["']/g)].map((match) => match[1]));
-for (const match of content.matchAll(/["'](\.\/assets\/[^"']+)["']/g)) references.add(match[1]);
+for (const match of content.matchAll(/["'](\.\/src\/assets\/[^"']+)["']/g)) references.add(match[1]);
 
 for (const reference of references) {
-  const sourcePath = reference.startsWith('./assets/')
-    ? join(projectRoot, 'src', reference.slice(2))
-    : join(projectRoot, reference.slice(2));
+  const sourcePath = join(projectRoot, reference.slice(2));
   try { await access(sourcePath); } catch { failures.push(`Missing local reference: ${reference}`); }
+}
+
+if ([...references].some((reference) => reference.startsWith('./assets/'))) {
+  failures.push('Legacy ./assets path found; use ./src/assets so root preview and deployment share one path.');
 }
 
 const projectFiles = await collectFiles(projectRoot);

@@ -43,8 +43,8 @@
 
 ## Referensi path dan konfigurasi
 
-- Path produksi menggunakan `./src/styles/...`, `./src/scripts/...`, dan `./assets/...` pada HTML hasil build.
-- Source aset tunggal berada di `src/assets/`; build menyalinnya ke `dist/assets/` agar URL runtime tetap ringkas.
+- Source dan hasil build menggunakan path yang sama: `./src/styles/...`, `./src/scripts/...`, dan `./src/assets/...`.
+- Source aset tunggal berada di `src/assets/`; build mempertahankan struktur tersebut di dalam artefak sementara agar preview root dan deployment tidak membutuhkan rewrite path.
 - Tidak ada referensi aktif ke `docs/archive`, `docs/design-reference`, `docs/source-assets`, atau folder `images` lama.
 - `package.json` tetap minimal dan tidak membutuhkan instalasi package.
 - `scripts/check.mjs` diperkuat untuk memeriksa satu source `index.html`, satu folder `src`, path pensiun, aset yang tidak digunakan, sintaks JavaScript, import CSS, anchor, ID, dan konfigurasi hosting.

@@ -10,11 +10,8 @@ if (!outputDirectory.startsWith(`${projectRoot}${sep}`)) {
 }
 
 await rm(outputDirectory, { recursive: true, force: true });
-await mkdir(join(outputDirectory, 'src'), { recursive: true });
+await mkdir(outputDirectory, { recursive: true });
 await cp(join(projectRoot, 'index.html'), join(outputDirectory, 'index.html'));
-await cp(join(projectRoot, 'src', 'data'), join(outputDirectory, 'src', 'data'), { recursive: true });
-await cp(join(projectRoot, 'src', 'scripts'), join(outputDirectory, 'src', 'scripts'), { recursive: true });
-await cp(join(projectRoot, 'src', 'styles'), join(outputDirectory, 'src', 'styles'), { recursive: true });
-await cp(join(projectRoot, 'src', 'assets'), join(outputDirectory, 'assets'), { recursive: true });
+await cp(join(projectRoot, 'src'), join(outputDirectory, 'src'), { recursive: true });
 
 console.log(`Static build siap di ${outputDirectory}`);

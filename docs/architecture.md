@@ -39,4 +39,4 @@ index.html + src/data + src/scripts + src/styles + src/assets
 
 Folder `docs/` dan `scripts/` tidak disalin ke `dist`. Hanya entry point, source runtime, dan aset produksi yang masuk ke hasil deployment.
 
-`dist/` bukan source kedua. Folder ini diabaikan Git dan hanya dibentuk sementara oleh `npm.cmd run build` karena OpenAI Sites membutuhkan direktori statis untuk deployment. `npm.cmd run validate` serta penutupan normal server preview akan membersihkannya kembali.
+`dist/` bukan source kedua. Folder ini diabaikan Git dan hanya dibentuk sementara oleh `npm.cmd run build` karena OpenAI Sites membutuhkan direktori statis untuk deployment. `npm.cmd run validate` membersihkannya kembali, sedangkan `npm.cmd run dev` melayani source root tanpa membuat `dist/`.
