@@ -9,7 +9,8 @@ npm.cmd run check     # Cek sintaks, aset, CSS import, id, anchor, dan hosting c
 npm.cmd run build     # Buat output deployment sementara di dist/
 npm.cmd run clean     # Hapus output build sementara
 npm.cmd run dev       # Preview source langsung tanpa membuat dist/
-npm.cmd run validate  # Check, build, lalu bersihkan dist/ otomatis
+npm.cmd run history   # Buat/update dokumentasi Markdown untuk setiap SHA
+npm.cmd run validate  # Update history, check, build, lalu bersihkan dist/
 ```
 
 Tidak ada package eksternal yang perlu di-install. `package.json` hanya menyediakan perintah kerja yang konsisten.
@@ -23,13 +24,15 @@ Tidak ada package eksternal yang perlu di-install. `package.json` hanya menyedia
 ├── docs/
 │   ├── architecture.md          # Arsitektur dan arah dependensi
 │   ├── audit-report.md          # Hasil audit dan keputusan perapihan
+│   ├── commit-history/           # Indeks dan detail rollback setiap SHA
 │   ├── design-system.md         # Aturan visual yang wajib dipertahankan
 │   └── product-requirements.md  # PRD proyek
 ├── scripts/
 │   ├── build.mjs                # Menyusun dist/ dari source aktif
 │   ├── check.mjs                # Pemeriksaan otomatis tanpa dependency
 │   ├── clean.mjs                # Menghapus output build sementara
-│   └── dev.mjs                  # Static preview server lokal
+│   ├── dev.mjs                  # Static preview server lokal
+│   └── update-commit-history.mjs # Generator dokumentasi setiap SHA
 ├── src/
 │   ├── assets/images/           # Semua aset gambar yang dipakai website
 │   │   ├── certificates/

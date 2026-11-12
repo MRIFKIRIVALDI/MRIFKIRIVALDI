@@ -8,6 +8,7 @@
     "build": "node scripts/build.mjs",
     "clean": "node scripts/clean.mjs",
     "dev": "node scripts/dev.mjs",
-    "validate": "npm run check && npm run build && npm run clean"
+    "history": "node scripts/update-commit-history.mjs",
+    "validate": "npm run history && npm run check && npm run build && npm run clean"
   }
 }

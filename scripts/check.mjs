@@ -16,6 +16,7 @@ const sourceFiles = [
   'scripts/check.mjs',
   'scripts/clean.mjs',
   'scripts/dev.mjs',
+  'scripts/update-commit-history.mjs',
 ];
 
 const excludedDirectories = new Set(['.git', 'dist', 'outputs']);
