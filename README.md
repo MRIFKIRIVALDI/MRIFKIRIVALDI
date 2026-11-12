@@ -1,57 +1,59 @@
-# Aetheria Portfolio — M. Rifki Rivaldi
+# Portofolio M. Rifki Rivaldi
 
-Implementasi portofolio berdasarkan `product_requirements_document.md` dan referensi `stitch_glassmorphic_3d_developer_portfolio/DESIGN.md`.
+Portofolio statis berbasis HTML, CSS modular, JavaScript ES Modules, dan Three.js. Proyek sengaja tidak memakai framework karena seluruh konten masih berupa satu halaman tanpa state aplikasi, routing, autentikasi, atau backend.
 
-## Menjalankan proyek
-
-Proyek ini tidak membutuhkan instalasi package. Jalankan static server dari folder proyek:
+## Perintah utama
 
 ```powershell
-python -m http.server 8000
+npm.cmd run check     # Cek sintaks, aset, CSS import, id, anchor, dan hosting config
+npm.cmd run build     # Buat output deployment di dist/
+npm.cmd run dev       # Build lalu jalankan preview di http://127.0.0.1:4173
+npm.cmd run validate  # Jalankan check dan build sekaligus
 ```
 
-Kemudian buka `http://localhost:8000`.
+Tidak ada package eksternal yang perlu di-install. `package.json` hanya menyediakan perintah kerja yang konsisten.
 
-Untuk menghasilkan artefak deployment di folder `dist`:
-
-```powershell
-node scripts/build.mjs
-```
-
-## Struktur yang perlu diketahui
+## Struktur folder
 
 ```text
 .
-├── index.html                  # Struktur halaman dan konten unik
-├── scripts/build.mjs           # Build statis ke folder dist
+├── .openai/
+│   └── hosting.json             # Identitas dan output hosting Sites
+├── docs/
+│   ├── architecture.md          # Arsitektur dan arah dependensi
+│   ├── product-requirements.md  # PRD proyek
+│   ├── design-reference/        # Referensi desain, bukan source produksi
+│   ├── source-assets/           # Aset master yang tidak ikut deployment
+│   └── archive/                 # Snapshot lama yang hanya untuk referensi
+├── scripts/
+│   ├── build.mjs                # Menyusun dist/ dari source aktif
+│   ├── check.mjs                # Pemeriksaan otomatis tanpa dependency
+│   └── dev.mjs                  # Static preview server lokal
 ├── src/
-│   ├── data/
-│   │   └── content.js          # Data layanan, tools, proyek, proses, sertifikat
-│   ├── assets/
-│   │   └── profile-rifki.png   # Foto profil lokal
-│   ├── scripts/
-│   │   ├── main.js             # Bootstrap, navigasi, form, reveal animation
-│   │   ├── hero-robot.js       # Robot 3D procedural dan animasi Hero
-│   │   ├── render.js           # Template komponen berbasis data
-│   │   ├── theme.js            # Light/Galaxy theme + localStorage
-│   │   └── galaxy.js           # Three.js starfield + mouse parallax
-│   └── styles/
-│       ├── main.css            # Entry CSS
-│       ├── tokens.css          # Warna, tipografi, radius, spacing
-│       ├── base.css            # Reset dan fondasi global
-│       ├── components.css      # Glass, tombol, marquee, atmosfer
-│       ├── sections.css        # Layout setiap section
-│       └── responsive.css      # Tablet dan mobile
-├── product_requirements_document.md
-└── stitch_glassmorphic_3d_developer_portfolio/ # Referensi desain asli
+│   ├── assets/images/           # Semua aset gambar yang dipakai website
+│   │   ├── certificates/
+│   │   ├── icons/
+│   │   ├── profile/
+│   │   └── projects/
+│   ├── data/content.js          # Konten berulang dan link eksternal
+│   ├── scripts/                 # Perilaku UI, tema, render, dan Three.js
+│   └── styles/                  # CSS berdasarkan tanggung jawab
+├── index.html                   # Struktur semantik halaman
+├── package.json                 # Perintah kerja proyek
+└── dist/                        # Hasil build; jangan diedit langsung
 ```
 
 ## Panduan revisi cepat
 
-- Ubah proyek, layanan, teknologi, proses, sertifikat, atau link sosial di `src/data/content.js`.
-- Ubah palet dan skala desain di `src/styles/tokens.css`.
-- Ubah layout section di `src/styles/sections.css`.
-- Ubah email tujuan pada handler formulir di `src/scripts/main.js`.
-- Ganti `src/assets/profile-rifki.png` untuk memperbarui foto tanpa mengubah markup.
+- Ubah proyek, layanan, sertifikat, teknologi, dan social link di `src/data/content.js`.
+- Ubah isi unik Hero, About, Contact, atau navbar di `index.html`.
+- Ubah warna dan ukuran global di `src/styles/tokens.css`.
+- Ubah layout umum section di `src/styles/sections.css`.
+- Ubah komposisi About di `src/styles/about.css`.
+- Ubah breakpoint tablet/mobile di `src/styles/responsive.css`.
+- Ganti gambar di `src/assets/images/`, lalu sesuaikan path di `content.js` atau `index.html`.
+- Jangan mengedit `dist/`; jalankan `npm.cmd run build` untuk membuatnya ulang.
 
-Theme tersimpan dengan key `site-theme`. Starfield berjalan saat Galaxy Mode aktif, sedangkan robot 3D Hero berjalan hanya ketika terlihat di viewport. Keduanya menghormati preferensi reduced motion.
+## Kapan perlu framework?
+
+Belum perlu. Framework seperti React/Vue baru layak dipertimbangkan jika proyek berkembang menjadi banyak halaman, mempunyai state kompleks, mengambil data dari API/backend, memerlukan autentikasi, atau memiliki komponen interaktif yang dipakai ulang dalam jumlah besar. Untuk portofolio ini, ES Modules lebih ringan dan lebih mudah dipelihara.

@@ -5,7 +5,6 @@ import {
   services,
   skillMarquee,
   socialLinks,
-  stats,
   tools,
   valueMarquee,
 } from '../data/content.js';
@@ -23,12 +22,6 @@ export function renderContent() {
     <a href="${item.url}" target="_blank" rel="noreferrer" aria-label="${item.label}">
       ${item.image ? assetImage(item.image, '', 'social-links__icon') : icon(item.icon)}<span>${item.label}</span>
     </a>
-  `).join(''));
-
-  setHTML('#stats-grid', stats.map((item) => `
-    <article class="stat-card glass-tile accent-${item.accent}">
-      ${icon(item.icon)}<strong>${item.value}</strong><span>${item.label}</span>
-    </article>
   `).join(''));
 
   setHTML('#services-grid', services.map((item) => `

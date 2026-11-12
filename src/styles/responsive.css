@@ -89,7 +89,6 @@
   .hero__visual { width: min(100%, 540px); margin: -2rem auto -1rem; }
   .robot-stage { height: 500px; }
   .hero__portfolio-word { font-size: clamp(6rem, 25vw, 10rem); }
-  .section-card,
   .contact { grid-template-columns: 1fr; }
   .service-card { grid-column: span 6; }
   .project-card { grid-column: span 12; min-height: 450px; }
@@ -119,11 +118,7 @@
   .metric-card--credential strong { font-size: 1.5rem; }
   .metric-card--impact { right: 0; bottom: 5%; width: 145px; }
   .hero__social { width: min(100%, 360px); padding-inline: 0.9rem; }
-  .section-card,
   .contact { padding: 1.35rem; border-radius: 26px; }
-  .stats-grid { gap: 0.45rem; }
-  .stat-card { padding-inline: 0.25rem; }
-  .stat-card span { font-size: 0.45rem; }
   .section-heading--split { align-items: flex-start; flex-direction: column; }
   .services-grid { gap: 0.8rem; }
   .service-card { grid-column: span 12; min-height: 0; }

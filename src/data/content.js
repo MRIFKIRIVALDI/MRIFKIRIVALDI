@@ -1,14 +1,8 @@
 export const socialLinks = [
-  { label: 'GitHub', image: './images/logo/logo github.png', url: 'https://github.com/MRIFKIRIVALDI' },
-  { label: 'LinkedIn', image: './images/logo/logo linkedin.png', url: 'https://www.linkedin.com/in/m-rifki-rivaldi-091b49390/' },
-  { label: 'Instagram', image: './images/logo/logo ig.png', url: 'https://www.instagram.com/rifkiikrif/' },
-  { label: 'WhatsApp', image: './images/logo/logo wa.png', url: 'https://wa.me/6281296876716' },
-];
-
-export const stats = [
-  { value: '3+', label: 'Tahun Aktif', icon: 'fa-regular fa-calendar-check', accent: 'iris' },
-  { value: '6+', label: 'Proyek Utama', icon: 'fa-solid fa-diagram-project', accent: 'violet' },
-  { value: '100%', label: 'Kredensial', icon: 'fa-solid fa-award', accent: 'cyan' },
+  { label: 'GitHub', image: './assets/images/icons/github.png', url: 'https://github.com/MRIFKIRIVALDI' },
+  { label: 'LinkedIn', image: './assets/images/icons/linkedin.png', url: 'https://www.linkedin.com/in/m-rifki-rivaldi-091b49390/' },
+  { label: 'Instagram', image: './assets/images/icons/instagram.png', url: 'https://www.instagram.com/rifkiikrif/' },
+  { label: 'WhatsApp', image: './assets/images/icons/whatsapp.png', url: 'https://wa.me/6281296876716' },
 ];
 
 export const services = [
@@ -60,8 +54,7 @@ export const projects = [
     badge: 'KKN Desa Cikadu 2025',
     description: 'Publikasi visual Instagram selama satu bulan menggunakan CorelDraw dan Canva dengan sistem desain yang konsisten.',
     stack: 'CorelDraw • Canva',
-    images: ['./images/project/kknfeed1.jpg', './images/project/kknfeed2.jpg', './images/project/kknfeed3.jpg'],
-    icon: 'fa-brands fa-instagram',
+    images: ['./assets/images/projects/kkn-feed-01.jpg', './assets/images/projects/kkn-feed-02.jpg', './assets/images/projects/kkn-feed-03.jpg'],
     accent: 'rose',
     url: 'https://www.instagram.com/kkn.cikadu2025/',
   },
@@ -71,8 +64,7 @@ export const projects = [
     badge: 'Gemini AI Search API',
     description: 'Website rekomendasi pesantren Indonesia dengan Python dan integrasi Gemini API untuk pencarian berbasis AI.',
     stack: 'Python • Gemini API',
-    images: ['./images/project/goss.png'],
-    icon: 'fa-solid fa-brain',
+    images: ['./assets/images/projects/go-pesantren.png'],
     accent: 'iris',
     url: 'https://youtu.be/WiSeUj2SIU8?si=O1fh90BGxziF_1Xj',
   },
@@ -82,8 +74,7 @@ export const projects = [
     badge: '3D Interactive Canvas',
     description: 'Portofolio responsif dengan wireframe 3D, kinetic fluid, dan interaksi real-time berbasis Three.js.',
     stack: 'Three.js • JavaScript',
-    images: ['./images/project/portoss.png', './images/project/portoss2.png'],
-    icon: 'fa-solid fa-cube',
+    images: ['./assets/images/projects/portfolio-3d-01.png', './assets/images/projects/portfolio-3d-02.png'],
     accent: 'cyan',
     url: 'https://portofolio-murex-kappa-70.vercel.app/',
   },
@@ -93,8 +84,7 @@ export const projects = [
     badge: 'E-Commerce Profile',
     description: 'Company profile yang menyajikan katalog produk, layanan, dan kredibilitas bisnis secara komprehensif.',
     stack: 'Responsive • Catalog',
-    images: ['./images/project/harriselectronic.png'],
-    icon: 'fa-solid fa-store',
+    images: ['./assets/images/projects/harris-electronic.png'],
     accent: 'emerald',
     url: 'https://www.harriselectronic.store/',
   },
@@ -104,8 +94,7 @@ export const projects = [
     badge: 'RFID + Ultrasonic Sensor',
     description: 'Sistem parkir IoT dengan sensor ultrasonik dan RFID untuk mengoptimalkan akses kendaraan.',
     stack: 'Arduino • Sensor • RFID',
-    images: ['./images/project/parkir.png'],
-    icon: 'fa-solid fa-car-side',
+    images: ['./assets/images/projects/parking-system.png'],
     accent: 'amber',
     url: 'https://drive.google.com/file/d/1qJvBsqJtzNZjszEt8CjiS61SxQkUjxwg/view?usp=drive_link',
   },
@@ -115,8 +104,7 @@ export const projects = [
     badge: 'Google AppSheet Database',
     description: 'Aplikasi pencatatan packing untuk alur verifikasi barang yang cepat, akurat, dan terstruktur.',
     stack: 'AppSheet • Spreadsheet',
-    images: ['./images/project/packingrecord1.jpeg', './images/project/packingrecord2.jpeg'],
-    icon: 'fa-solid fa-boxes-packing',
+    images: ['./assets/images/projects/packing-record-01.jpeg', './assets/images/projects/packing-record-02.jpeg'],
     accent: 'violet',
     url: 'https://drive.google.com/file/d/1tDL0UeVOy1pNhHrBCh2eJ0foue_NCEwn/view?usp=sharing',
   },
@@ -131,12 +119,15 @@ export const processSteps = [
 ];
 
 export const certificates = [
-  { issuer: 'IT Specialist', title: 'Python Certified', detail: 'Information Technology Specialist', image: './images/sertifikat/9.jpg', accent: 'blue' },
-  { issuer: 'Kominfo DTS 2025', title: 'VSGA — IoT Engineer', detail: 'Perekayasa Perangkat Internet of Things', image: './images/sertifikat/6.jpg', accent: 'iris' },
-  { issuer: 'Database Foundations', title: 'Oracle Academy', detail: 'Database Foundations — ID', image: './images/sertifikat/4.jpg', accent: 'rose' },
-  { issuer: 'Cloud Computing', title: 'AWS Academy', detail: 'AWS Academy Cloud Foundations', image: './images/sertifikat/2.jpg', accent: 'amber' },
-  { issuer: 'Cyber Security', title: 'Workshop TI', detail: 'Keamanan Jaringan & Cyber Defense', image: './images/sertifikat/0.jpg', accent: 'cyan' },
-  { issuer: 'AI & Hardware', title: 'Workshop TE', detail: 'AIoT & Neural Network MCU', image: './images/sertifikat/10.jpg', accent: 'violet' },
+  { issuer: 'IT Specialist', title: 'Python Certified', detail: 'Information Technology Specialist', image: './assets/images/certificates/its-python-2024.jpg', accent: 'blue' },
+  { issuer: 'Komdigi DTS 2025', title: 'VSGA — IoT Engineer', detail: 'Perekayasa Perangkat Internet of Things', image: './assets/images/certificates/komdigi-iot-engineer-2025.jpg', accent: 'iris' },
+  { issuer: 'Database Foundations', title: 'Oracle Academy', detail: 'Database Foundations — ID', image: './assets/images/certificates/oracle-database-foundations-2025.jpg', accent: 'rose' },
+  { issuer: 'Cloud Computing', title: 'AWS Academy', detail: 'AWS Academy Cloud Foundations', image: './assets/images/certificates/aws-cloud-foundations-2025.jpg', accent: 'amber' },
+  { issuer: 'Cyber Security', title: 'Workshop TI', detail: 'Keamanan Jaringan & Cyber Defense', image: './assets/images/certificates/cybersecurity-workshop-2024.jpg', accent: 'cyan' },
+  { issuer: 'AI & Hardware', title: 'Workshop TE', detail: 'AIoT & Neural Network MCU', image: './assets/images/certificates/aiot-neural-network-2025.jpg', accent: 'violet' },
+  { issuer: 'SENTIMETER 2024', title: 'AI-Powered Cyber Defense', detail: 'Seminar Nasional Teknologi Informasi', image: './assets/images/certificates/ai-cyber-defense-seminar-2024.jpg', accent: 'cyan' },
+  { issuer: 'ICITACS 2025', title: 'International Conference', detail: 'Information Technology & Advanced Computer Science', image: './assets/images/certificates/icitacs-2025.jpg', accent: 'rose' },
+  { issuer: 'SISMATIK 2025', title: 'AI in Information Systems', detail: 'Enhancing Efficiency and Innovation', image: './assets/images/certificates/ai-information-systems-2025.jpg', accent: 'blue' },
 ];
 
 export const skillMarquee = ['Web Development', 'IoT Engineering', 'Cloud Computing', 'Network Security', 'UI/UX Design', 'Full-Stack Solutions', 'Three.js & 3D Experiences'];
