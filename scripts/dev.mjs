@@ -18,7 +18,7 @@ const mimeTypes = {
   '.svg': 'image/svg+xml',
 };
 
-createServer((request, response) => {
+const server = createServer((request, response) => {
   const requestPath = decodeURIComponent(new URL(request.url, `http://${request.headers.host}`).pathname);
   const relativePath = requestPath === '/' ? 'index.html' : normalize(requestPath).replace(/^[/\\]+/, '');
   const filePath = resolve(publicRoot, relativePath);
@@ -35,6 +35,17 @@ createServer((request, response) => {
   } catch {
     response.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Not found');
   }
-}).listen(port, '127.0.0.1', () => {
+});
+
+server.on('error', (error) => {
+  if (error.code === 'EADDRINUSE') {
+    console.error(`Port ${port} sedang digunakan. Tutup preview lama atau jalankan dengan: $env:PORT=4174; npm.cmd run dev`);
+    process.exitCode = 1;
+    return;
+  }
+  throw error;
+});
+
+server.listen(port, '127.0.0.1', () => {
   console.log(`Portfolio preview: http://127.0.0.1:${port}`);
 });
