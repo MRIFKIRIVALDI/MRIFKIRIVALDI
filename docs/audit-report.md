@@ -6,7 +6,7 @@
 ## Ringkasan hasil
 
 - Source resmi hanya menggunakan satu folder `src/` dan satu entry point `index.html` di root.
-- Seluruh 27 aset produksi di `src/assets/` masih digunakan; tidak ada aset runtime yang dihapus.
+- `src/assets/` berisi 62 aset: 58 aset aktif terhubung ke runtime dan 4 logo cadangan dipertahankan untuk penggunaan berikutnya.
 - Tiga kelompok arsip/prototipe lama sudah dibandingkan sebelum dihapus.
 - `dist/` hanya dibuat sementara untuk build/hosting, diabaikan Git, dan dibersihkan kembali agar tidak terlihat sebagai source ganda.
 - Tidak diperlukan framework baru. HTML, CSS modular, ES Modules, dan Three.js sudah cukup untuk satu halaman tanpa routing, autentikasi, backend, atau state aplikasi kompleks.
@@ -29,7 +29,7 @@
 - `src/data/content.js`: sumber tunggal konten berulang dan link.
 - `src/scripts/`: modul render, tema, galaxy, robot astronot, dan orkestrasi UI.
 - `src/styles/`: stylesheet modular berdasarkan tanggung jawab.
-- `src/assets/`: 27 aset produksi yang seluruhnya terdeteksi masih direferensikan.
+- `src/assets/`: 58 aset runtime yang terdeteksi masih direferensikan serta 4 logo cadangan (Canva, Excel, PowerPoint, dan Word).
 - `scripts/`: build, validasi, dan preview tanpa dependency eksternal.
 - `.openai/hosting.json`: mengarahkan hosting statis ke `dist/`.
 - `docs/product-requirements.md`, `docs/architecture.md`, dan `docs/design-system.md`: persyaratan, arah dependensi, dan guardrail visual.
@@ -79,11 +79,12 @@ Saat build atau deployment berlangsung, `dist/` muncul sementara sebagai artefak
 
 ## Hasil pengujian
 
-- `npm.cmd run check`: lulus — 10 file JavaScript, 29 referensi lokal, 32 ID HTML, satu source index, satu folder src, dan seluruh aset produksi diperiksa.
+- `npm.cmd run check`: lulus — 10 file JavaScript, 60 referensi lokal, 32 ID HTML, satu source index, satu folder src, dan seluruh aset produksi diperiksa.
 - `npm.cmd run validate`: lulus — pemeriksaan struktur/sintaks, build statis, dan pembersihan otomatis `dist/` selesai dengan exit code 0.
 - HTTP preview: lulus dengan status 200.
 - Desktop 1440×1000: lulus — 27 gambar termuat, tidak ada horizontal overflow, canvas robot aktif pada 480×570, foto About 738 px, dan huruf latar `R` terdeteksi.
 - Mobile 390×844: lulus — tidak ada gambar rusak atau horizontal overflow, media query aktif, dan tombol menu tampil.
 - Interaksi: lulus — toggle berpindah ke Galaxy, preferensi tersimpan, starfield aktif, dan pointer/click robot dapat dipicu.
 - Console/network: lulus — 0 runtime exception, 0 console error, dan 0 network failure.
+- Tools & Skills: lulus — 30 kartu, 31 logo (termasuk dua varian GPT), 30 URL unik, 8 kolom desktop, 2 kolom mobile, tanpa logo rusak atau overflow.
 

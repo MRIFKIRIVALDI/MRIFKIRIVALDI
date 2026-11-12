@@ -89,9 +89,15 @@ const runtimeText = `${index}\n${content}\n${await Promise.all(
     .map((file) => readFile(file, 'utf8')),
 ).then((parts) => parts.join('\n'))}`;
 const assetRoot = join(projectRoot, 'src/assets');
+const reservedAssets = new Set([
+  'images/logo tools/canva.webp',
+  'images/logo tools/excel.webp',
+  'images/logo tools/powerpoint.webp',
+  'images/logo tools/word.webp',
+]);
 const unusedAssets = (await collectFiles(assetRoot))
   .map((file) => relative(assetRoot, file).split(sep).join('/'))
-  .filter((asset) => !runtimeText.includes(asset));
+  .filter((asset) => !runtimeText.includes(asset) && !reservedAssets.has(asset));
 if (unusedAssets.length) failures.push(`Unused production assets: ${unusedAssets.join(', ')}`);
 
 if (/\.(?:\/|\\)images\//.test(index) || /docs\/(?:archive|design-reference|source-assets)/.test(runtimeText)) {

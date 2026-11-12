@@ -16,6 +16,7 @@ const setHTML = (selector, markup) => {
 
 const icon = (className) => `<i class="${className}" aria-hidden="true"></i>`;
 const assetImage = (source, alt, className = '') => `<img class="${className}" src="${source}" alt="${alt}" loading="lazy" decoding="async" />`;
+const toolImage = (source, alt, className) => `<img class="${className}" src="${source}" alt="${alt}" decoding="async" />`;
 
 export function renderContent() {
   setHTML('#social-links', socialLinks.map((item) => `
@@ -36,9 +37,14 @@ export function renderContent() {
   `).join(''));
 
   setHTML('#tools-grid', tools.map((item) => `
-    <article class="tool-card glass-tile accent-${item.accent}">
-      ${icon(item.icon)}<span>${item.name}</span>
-    </article>
+    <a class="tool-card glass-tile accent-${item.accent}" href="${item.url}" target="_blank" rel="noopener noreferrer" aria-label="Buka website ${item.name}">
+      <span class="tool-card__logo-wrap">
+        ${toolImage(item.image, `Logo ${item.name}`, item.darkImage ? 'tool-card__logo tool-card__logo--light' : 'tool-card__logo')}
+        ${item.darkImage ? toolImage(item.darkImage, '', 'tool-card__logo tool-card__logo--dark') : ''}
+      </span>
+      <span class="tool-card__name">${item.name}</span>
+      ${icon('fa-solid fa-arrow-up-right-from-square tool-card__external')}
+    </a>
   `).join(''));
 
   setHTML('#projects-grid', projects.map((item, index) => `

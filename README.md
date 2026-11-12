@@ -48,6 +48,7 @@ Tidak ada package eksternal yang perlu di-install. `package.json` hanya menyedia
 ## Panduan revisi cepat
 
 - Ubah proyek, layanan, sertifikat, teknologi, dan social link di `src/data/content.js`.
+- Logo Tools & Skills berada di `src/assets/images/logo tools/`; nama, URL, logo, dan warna kartunya diatur melalui array `tools` pada `src/data/content.js`.
 - Ubah isi unik Hero, About, Contact, atau navbar di `index.html`.
 - Ubah warna dan ukuran global di `src/styles/tokens.css`.
 - Ubah layout umum section di `src/styles/sections.css`.
