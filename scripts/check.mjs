@@ -14,6 +14,7 @@ const sourceFiles = [
   'src/scripts/theme.js',
   'scripts/build.mjs',
   'scripts/check.mjs',
+  'scripts/clean.mjs',
   'scripts/dev.mjs',
 ];
 

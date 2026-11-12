@@ -8,7 +8,7 @@
 - Source resmi hanya menggunakan satu folder `src/` dan satu entry point `index.html` di root.
 - Seluruh 27 aset produksi di `src/assets/` masih digunakan; tidak ada aset runtime yang dihapus.
 - Tiga kelompok arsip/prototipe lama sudah dibandingkan sebelum dihapus.
-- `dist/` dipertahankan sebagai output build terbuat-ulang untuk hosting, bukan source kedua, dan diabaikan Git.
+- `dist/` hanya dibuat sementara untuk build/hosting, diabaikan Git, dan dibersihkan kembali agar tidak terlihat sebagai source ganda.
 - Tidak diperlukan framework baru. HTML, CSS modular, ES Modules, dan Three.js sudah cukup untuk satu halaman tanpa routing, autentikasi, backend, atau state aplikasi kompleks.
 
 ## Duplikasi yang ditemukan dan keputusan
@@ -20,7 +20,7 @@
 | `docs/design-reference/.../code.html` dan snapshot Stitch | Keduanya prototipe standalone berbasis Tailwind CDN dengan CSS/JS inline. Tidak diimpor oleh source aktif dan berbeda arsitektur dari CSS modular/ES Modules produksi. | Simpan aturan visual relevan di `docs/design-system.md`; hapus dua prototipe. |
 | Screenshot referensi desain | Hanya input visual historis dan tidak direferensikan runtime. | Hapus setelah identitas visual diringkas di `docs/design-system.md`. |
 | Tiga foto profil | File sumber JPG 2976×3968, PNG lama 341×512, dan PNG aktif 738×1107 memiliki hash berbeda. Hanya PNG aktif yang direferensikan; resolusinya lebih tinggi daripada PNG lama dan sesuai komposisi About saat ini. | Pertahankan `src/assets/images/profile/rifki-about.png`; hapus dua sumber yang tidak dipakai. |
-| `src/`/`index.html` dan salinannya di `dist/` | Seluruh 41 file build memiliki hash identik dengan input yang disalin. Salinan ini dibuat otomatis oleh `scripts/build.mjs` dan wajib tersedia untuk `hosting.json`. | Pertahankan `dist/` sebagai artefak build yang diabaikan Git; jangan diedit manual. |
+| `src/`/`index.html` dan salinannya di `dist/` | Seluruh 41 file build memiliki hash identik dengan input yang disalin. Salinan ini dibuat otomatis oleh `scripts/build.mjs` dan hanya wajib tersedia ketika packaging berlangsung. | Jadikan `dist/` artefak sementara; hapus otomatis setelah validasi/preview dan setelah deployment. |
 | `outputs/` | Berisi profil browser, screenshot QA, dan paket publikasi lama; bukan source atau dependensi runtime. | Bersihkan setelah pengujian dan publikasi selesai. |
 
 ## File yang dipertahankan
@@ -73,13 +73,14 @@
 │   └── styles/{about,base,components,main,responsive,sections,tokens}.css
 ├── index.html
 ├── package.json
-└── dist/                    # generated, Git-ignored
 ```
+
+Saat build atau deployment berlangsung, `dist/` muncul sementara sebagai artefak generated dan bukan bagian dari struktur source akhir.
 
 ## Hasil pengujian
 
-- `npm.cmd run check`: lulus — 9 file JavaScript, 29 referensi lokal, 32 ID HTML, satu source index, satu folder src, dan seluruh aset produksi diperiksa.
-- `npm.cmd run validate`: lulus — pemeriksaan struktur/sintaks dan build statis selesai dengan exit code 0.
+- `npm.cmd run check`: lulus — 10 file JavaScript, 29 referensi lokal, 32 ID HTML, satu source index, satu folder src, dan seluruh aset produksi diperiksa.
+- `npm.cmd run validate`: lulus — pemeriksaan struktur/sintaks, build statis, dan pembersihan otomatis `dist/` selesai dengan exit code 0.
 - HTTP preview: lulus dengan status 200.
 - Desktop 1440×1000: lulus — 27 gambar termuat, tidak ada horizontal overflow, canvas robot aktif pada 480×570, foto About 738 px, dan huruf latar `R` terdeteksi.
 - Mobile 390×844: lulus — tidak ada gambar rusak atau horizontal overflow, media query aktif, dan tombol menu tampil.

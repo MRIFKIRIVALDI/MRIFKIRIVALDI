@@ -6,7 +6,8 @@
   "scripts": {
     "check": "node scripts/check.mjs",
     "build": "node scripts/build.mjs",
+    "clean": "node scripts/clean.mjs",
     "dev": "node scripts/dev.mjs",
-    "validate": "npm run check && npm run build"
+    "validate": "npm run check && npm run build && npm run clean"
   }
 }

@@ -32,11 +32,11 @@ index.html + src/data + src/scripts + src/styles + src/assets
                               |
                         scripts/build.mjs
                               |
-                            dist/
+                     dist/ sementara
                               |
                        OpenAI Sites hosting
 ```
 
 Folder `docs/` dan `scripts/` tidak disalin ke `dist`. Hanya entry point, source runtime, dan aset produksi yang masuk ke hasil deployment.
 
-`dist/` bukan source kedua. Folder ini diabaikan Git, boleh dihapus kapan saja, dan dibentuk ulang secara deterministik oleh `npm.cmd run build` karena OpenAI Sites membutuhkan direktori statis untuk deployment.
+`dist/` bukan source kedua. Folder ini diabaikan Git dan hanya dibentuk sementara oleh `npm.cmd run build` karena OpenAI Sites membutuhkan direktori statis untuk deployment. `npm.cmd run validate` serta penutupan normal server preview akan membersihkannya kembali.

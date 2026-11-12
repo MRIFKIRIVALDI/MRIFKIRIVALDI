@@ -6,9 +6,10 @@ Portofolio statis berbasis HTML, CSS modular, JavaScript ES Modules, dan Three.j
 
 ```powershell
 npm.cmd run check     # Cek sintaks, aset, CSS import, id, anchor, dan hosting config
-npm.cmd run build     # Buat output deployment di dist/
-npm.cmd run dev       # Build lalu jalankan preview di http://127.0.0.1:4173
-npm.cmd run validate  # Jalankan check dan build sekaligus
+npm.cmd run build     # Buat output deployment sementara di dist/
+npm.cmd run clean     # Hapus output build sementara
+npm.cmd run dev       # Preview; dist/ dibersihkan saat server ditutup normal
+npm.cmd run validate  # Check, build, lalu bersihkan dist/ otomatis
 ```
 
 Tidak ada package eksternal yang perlu di-install. `package.json` hanya menyediakan perintah kerja yang konsisten.
@@ -27,6 +28,7 @@ Tidak ada package eksternal yang perlu di-install. `package.json` hanya menyedia
 ├── scripts/
 │   ├── build.mjs                # Menyusun dist/ dari source aktif
 │   ├── check.mjs                # Pemeriksaan otomatis tanpa dependency
+│   ├── clean.mjs                # Menghapus output build sementara
 │   └── dev.mjs                  # Static preview server lokal
 ├── src/
 │   ├── assets/images/           # Semua aset gambar yang dipakai website
@@ -38,9 +40,10 @@ Tidak ada package eksternal yang perlu di-install. `package.json` hanya menyedia
 │   ├── scripts/                 # Perilaku UI, tema, render, dan Three.js
 │   └── styles/                  # CSS berdasarkan tanggung jawab
 ├── index.html                   # Struktur semantik halaman
-├── package.json                 # Perintah kerja proyek
-└── dist/                        # Output build terabaikan Git; bukan source kedua
+└── package.json                 # Perintah kerja proyek
 ```
+
+`dist/` tidak termasuk struktur source. Folder tersebut hanya dibuat sementara saat `build`, `dev`, atau proses deployment, lalu dibersihkan kembali agar Explorer tetap menampilkan satu `src/` dan satu `index.html`.
 
 ## Panduan revisi cepat
 
@@ -51,7 +54,7 @@ Tidak ada package eksternal yang perlu di-install. `package.json` hanya menyedia
 - Ubah komposisi About di `src/styles/about.css`.
 - Ubah breakpoint tablet/mobile di `src/styles/responsive.css`.
 - Ganti gambar di `src/assets/images/`, lalu sesuaikan path di `content.js` atau `index.html`.
-- Jangan mengedit `dist/`; folder ini salinan hasil build untuk hosting dan selalu dibuat ulang oleh `npm.cmd run build`.
+- Jangan mengedit `dist/`; folder sementara ini selalu dibuat ulang dari source aktif.
 
 ## Kapan perlu framework?
 
