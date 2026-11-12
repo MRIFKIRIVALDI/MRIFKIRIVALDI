@@ -67,6 +67,10 @@ export const tools = [
   { name: 'CorelDRAW', image: './src/assets/images/logo tools/coreldraw.webp', url: 'https://www.coreldraw.com/', accent: 'emerald' },
   { name: 'Figma', image: './src/assets/images/logo tools/figma.webp', url: 'https://www.figma.com/', accent: 'violet' },
   { name: 'Discord', image: './src/assets/images/logo tools/discord.webp', url: 'https://discord.com/', accent: 'blue' },
+  { name: 'Microsoft Word', image: './src/assets/images/logo tools/word.webp', url: 'https://www.microsoft.com/microsoft-365/word', accent: 'blue' },
+  { name: 'Microsoft Excel', image: './src/assets/images/logo tools/excel.webp', url: 'https://www.microsoft.com/microsoft-365/excel', accent: 'emerald' },
+  { name: 'Microsoft PowerPoint', image: './src/assets/images/logo tools/powerpoint.webp', url: 'https://www.microsoft.com/microsoft-365/powerpoint', accent: 'rose' },
+  { name: 'Canva', image: './src/assets/images/logo tools/canva.webp', url: 'https://www.canva.com/', accent: 'cyan' },
 ];
 
 export const projects = [
