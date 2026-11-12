@@ -21,10 +21,9 @@ Tidak ada package eksternal yang perlu di-install. `package.json` hanya menyedia
 │   └── hosting.json             # Identitas dan output hosting Sites
 ├── docs/
 │   ├── architecture.md          # Arsitektur dan arah dependensi
-│   ├── product-requirements.md  # PRD proyek
-│   ├── design-reference/        # Referensi desain, bukan source produksi
-│   ├── source-assets/           # Aset master yang tidak ikut deployment
-│   └── archive/                 # Snapshot lama yang hanya untuk referensi
+│   ├── audit-report.md          # Hasil audit dan keputusan perapihan
+│   ├── design-system.md         # Aturan visual yang wajib dipertahankan
+│   └── product-requirements.md  # PRD proyek
 ├── scripts/
 │   ├── build.mjs                # Menyusun dist/ dari source aktif
 │   ├── check.mjs                # Pemeriksaan otomatis tanpa dependency
@@ -40,7 +39,7 @@ Tidak ada package eksternal yang perlu di-install. `package.json` hanya menyedia
 │   └── styles/                  # CSS berdasarkan tanggung jawab
 ├── index.html                   # Struktur semantik halaman
 ├── package.json                 # Perintah kerja proyek
-└── dist/                        # Hasil build; jangan diedit langsung
+└── dist/                        # Output build terabaikan Git; bukan source kedua
 ```
 
 ## Panduan revisi cepat
@@ -52,7 +51,7 @@ Tidak ada package eksternal yang perlu di-install. `package.json` hanya menyedia
 - Ubah komposisi About di `src/styles/about.css`.
 - Ubah breakpoint tablet/mobile di `src/styles/responsive.css`.
 - Ganti gambar di `src/assets/images/`, lalu sesuaikan path di `content.js` atau `index.html`.
-- Jangan mengedit `dist/`; jalankan `npm.cmd run build` untuk membuatnya ulang.
+- Jangan mengedit `dist/`; folder ini salinan hasil build untuk hosting dan selalu dibuat ulang oleh `npm.cmd run build`.
 
 ## Kapan perlu framework?
 
