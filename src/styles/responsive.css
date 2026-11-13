@@ -58,8 +58,8 @@
 
 @media (max-width: 780px) {
   :root { --section-space: 4.5rem; }
-  .site-shell { width: min(100% - 2rem, var(--page-width)); }
-  .site-header { grid-template-columns: 1fr auto auto; min-height: 62px; padding: 0.55rem 0.65rem 0.55rem 0.75rem; }
+  .site-shell { width: min(100% - 2rem, var(--page-width)); padding-top: calc(1.5rem + 62px); }
+  .site-header { grid-template-columns: 1fr auto auto; width: min(100% - 2rem, var(--page-width)); min-height: 62px; padding: 0.55rem 0.65rem 0.55rem 0.75rem; }
   .brand__copy small { display: none; }
   .button--compact { display: none; }
   .theme-toggle { width: 38px; padding: 0; }
@@ -94,12 +94,14 @@
   .project-card { grid-column: span 12; min-height: 450px; }
   .process-grid { grid-template-columns: repeat(2, 1fr); }
   .certificate-card { grid-column: span 6; }
+  .tools-browser { grid-template-columns: 1fr; }
+  .tools-result { grid-column: 1; text-align: left; }
   .site-footer { align-items: flex-start; flex-direction: column; }
 }
 
 @media (max-width: 560px) {
-  .site-shell { width: min(100% - 1.25rem, var(--page-width)); padding-top: 0.65rem; }
-  .site-header { top: 0.6rem; }
+  .site-shell { width: min(100% - 1.25rem, var(--page-width)); padding-top: calc(0.65rem + 62px); }
+  .site-header { top: 0.6rem; width: min(100% - 1.25rem, var(--page-width)); }
   .brand__copy strong { max-width: 112px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   h1 { max-width: 100%; font-size: clamp(2.35rem, 10.8vw, 3rem); overflow-wrap: anywhere; }
   .hero__identity,
@@ -123,6 +125,9 @@
   .services-grid { gap: 0.8rem; }
   .service-card { grid-column: span 12; min-height: 0; }
   .tools-grid { grid-template-columns: repeat(2, 1fr); }
+  .tools-browser { padding: 0.65rem; border-radius: 22px; }
+  .tools-filters { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 0.2rem; scrollbar-width: thin; }
+  .tools-filter { flex: 0 0 auto; }
   .process-grid { grid-template-columns: 1fr; }
   .process-card { min-height: 160px; }
   .process-card > div { margin-bottom: 1.8rem; }

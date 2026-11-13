@@ -105,7 +105,19 @@ a {
   z-index: 5;
   width: min(100% - 2.5rem, var(--page-width));
   margin: 0 auto;
-  padding: 1.5rem 0 2.5rem;
+  padding: calc(1.5rem + 68px) 0 2.5rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 .section {

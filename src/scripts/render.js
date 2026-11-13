@@ -5,6 +5,7 @@ import {
   services,
   skillMarquee,
   socialLinks,
+  toolCategories,
   tools,
   valueMarquee,
 } from '../data/content.js';
@@ -36,8 +37,29 @@ export function renderContent() {
     </article>
   `).join(''));
 
+  setHTML('[data-tools-filters]', toolCategories.map((category) => `
+    <button
+      class="tools-filter glass-control${category.id === 'all' ? ' is-active' : ''}"
+      type="button"
+      data-tool-filter="${category.id}"
+      aria-pressed="${category.id === 'all'}"
+    >
+      ${category.label}
+      <span>${category.id === 'all' ? tools.length : tools.filter((item) => item.category === category.id).length}</span>
+    </button>
+  `).join(''));
+
   setHTML('#tools-grid', tools.map((item) => `
-    <a class="tool-card glass-tile accent-${item.accent}" href="${item.url}" target="_blank" rel="noopener noreferrer" aria-label="Buka website ${item.name}">
+    <a
+      class="tool-card glass-tile accent-${item.accent}"
+      href="${item.url}"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Buka website ${item.name}"
+      data-tool-card
+      data-tool-name="${item.name.toLocaleLowerCase('id-ID')}"
+      data-tool-category="${item.category}"
+    >
       <span class="tool-card__logo-wrap">
         ${toolImage(item.image, `Logo ${item.name}`, item.darkImage ? 'tool-card__logo tool-card__logo--light' : 'tool-card__logo')}
         ${item.darkImage ? toolImage(item.darkImage, '', 'tool-card__logo tool-card__logo--dark') : ''}
@@ -46,6 +68,8 @@ export function renderContent() {
       ${icon('fa-solid fa-arrow-up-right-from-square tool-card__external')}
     </a>
   `).join(''));
+
+  initToolsBrowser();
 
   setHTML('#projects-grid', projects.map((item, index) => `
     <article class="project-card glass-tile accent-${item.accent}">
@@ -87,6 +111,46 @@ export function renderContent() {
 
   renderMarquee('#skills-marquee', skillMarquee, 'fa-solid fa-star-of-life');
   renderMarquee('#values-marquee', valueMarquee, 'fa-solid fa-diamond');
+}
+
+function initToolsBrowser() {
+  const search = document.querySelector('[data-tools-search]');
+  const filters = [...document.querySelectorAll('[data-tool-filter]')];
+  const cards = [...document.querySelectorAll('[data-tool-card]')];
+  const result = document.querySelector('[data-tools-result]');
+  const empty = document.querySelector('[data-tools-empty]');
+  let activeCategory = 'all';
+
+  const applyFilters = () => {
+    const query = search?.value.trim().toLocaleLowerCase('id-ID') || '';
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const matchesCategory = activeCategory === 'all' || card.dataset.toolCategory === activeCategory;
+      const matchesSearch = !query || card.dataset.toolName.includes(query);
+      const visible = matchesCategory && matchesSearch;
+      card.hidden = !visible;
+      if (visible) visibleCount += 1;
+    });
+
+    if (result) result.textContent = `${visibleCount} teknologi ditampilkan`;
+    if (empty) empty.hidden = visibleCount !== 0;
+  };
+
+  filters.forEach((button) => {
+    button.addEventListener('click', () => {
+      activeCategory = button.dataset.toolFilter;
+      filters.forEach((filter) => {
+        const active = filter === button;
+        filter.classList.toggle('is-active', active);
+        filter.setAttribute('aria-pressed', String(active));
+      });
+      applyFilters();
+    });
+  });
+
+  search?.addEventListener('input', applyFilters);
+  applyFilters();
 }
 
 function renderMarquee(selector, items, separatorIcon) {

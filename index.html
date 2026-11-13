@@ -31,7 +31,8 @@
         } catch (_) {}
       })();
     </script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script defer src="./src/vendor/three/three.min.js"></script>
+    <script defer src="./src/vendor/three/GLTFLoader.js"></script>
     <script type="module" src="./src/scripts/main.js"></script>
   </head>
 
@@ -118,7 +119,7 @@
               data-robot-stage
               role="button"
               tabindex="0"
-              aria-label="Robot astronot interaktif. Gerakkan pointer atau tekan Enter untuk menyapa."
+              aria-label="Objek 3D interaktif: drag untuk memutar. Klik pesawat untuk menuju About atau klik robot astronot untuk mengayunkan alatnya."
             >
               <span class="robot-stage__orb robot-stage__orb--violet" aria-hidden="true"></span>
               <span class="robot-stage__orb robot-stage__orb--cyan" aria-hidden="true"></span>
@@ -126,10 +127,10 @@
                 id="hero-robot-canvas"
                 class="hero-robot-canvas"
                 role="img"
-                aria-label="Robot astronot 3D interaktif dengan animasi mengambang"
+                aria-label="Pesawat atau robot astronot 3D interaktif dengan animasi mengambang"
               ></canvas>
               <div class="robot-status glass-control" aria-hidden="true">
-                <span></span><b data-robot-status-text> Astro Unit • Online</b>
+                <span></span><b data-robot-status-text> Loading 3D object</b>
               </div>
               <div class="metric-card metric-card--credential glass">
                 <div><strong>6+</strong><i class="fa-solid fa-award" aria-hidden="true"></i></div>
@@ -226,7 +227,26 @@
             <p class="section-kicker">Tools & Skills</p>
             <h2 id="tools-title">Technologies I Use</h2>
           </div>
+          <div class="tools-browser glass" aria-label="Cari dan filter teknologi">
+            <label class="tools-search glass-control" for="tools-search">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input
+                id="tools-search"
+                type="search"
+                placeholder="Cari teknologi..."
+                autocomplete="off"
+                data-tools-search
+              />
+              <span class="sr-only">Cari teknologi berdasarkan nama</span>
+            </label>
+            <div class="tools-filters" role="group" aria-label="Filter kategori teknologi" data-tools-filters></div>
+            <p class="tools-result" aria-live="polite" data-tools-result></p>
+          </div>
           <div id="tools-grid" class="tools-grid"></div>
+          <p class="tools-empty glass-control" data-tools-empty hidden>
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            Teknologi yang dicari belum ditemukan.
+          </p>
         </section>
 
         <section id="projects" class="section reveal" aria-labelledby="projects-title">
