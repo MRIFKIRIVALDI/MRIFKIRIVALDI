@@ -4,14 +4,15 @@ Dokumen ini dibuat otomatis oleh `npm run history` dari riwayat Git yang benar-b
 
 > SHA adalah identitas commit yang sebenarnya. Pesan commit boleh sama, tetapi SHA selalu berbeda. Perubahan yang belum di-commit tidak akan muncul di sini.
 
-- Commit terbaru saat dokumen dibuat: `d99804cd69c8a4adc8c8d8861838b7425de5fffa`
-- Jumlah commit terdokumentasi: 10
+- Commit terbaru saat dokumen dibuat: `cffaa415963336414cabe94f88a2360c4952bada`
+- Jumlah commit terdokumentasi: 11
 - Generator: `scripts/update-commit-history.mjs`
 
 ## Daftar commit
 
 | SHA | Tanggal | Isi perubahan | File |
 | --- | --- | --- | ---: |
+| [`cffaa41`](./cffaa41.md) | 2026-11-12 | docs: add SHA-based rollback history | 15 |
 | [`d99804c`](./d99804c.md) | 2026-11-12 | Menambahkan Microsoft Word, Excel, PowerPoint, dan Canva sehingga Tools & Skills berisi 34 kartu. | 3 |
 | [`871172f`](./871172f.md) | 2026-11-12 | Menambahkan 30 kartu Tools & Skills dengan 31 logo, link eksternal, responsivitas, dan varian logo GPT untuk kedua tema. | 41 |
 | [`59da806`](./59da806.md) | 2026-11-12 | Memperbaiki seluruh path gambar ke src/assets agar gambar tampil dari root preview maupun deployment. | 8 |

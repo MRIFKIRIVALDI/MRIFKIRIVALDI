@@ -12,20 +12,33 @@ html {
 }
 
 body {
+  position: relative;
+  isolation: isolate;
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
   overflow-x: hidden;
-  background:
-    radial-gradient(circle at 16% 8%, rgba(129, 140, 248, 0.11), transparent 30rem),
-    radial-gradient(circle at 88% 28%, rgba(56, 189, 248, 0.1), transparent 32rem),
-    var(--surface);
+  background: var(--surface);
   color: var(--text);
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.45s ease, color 0.35s ease;
+}
+
+body::before {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  background-color: var(--surface);
+  background-image: var(--wallpaper-overlay), var(--wallpaper-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: '';
+  filter: saturate(1.08) contrast(1.03);
+  pointer-events: none;
 }
 
 body::selection {

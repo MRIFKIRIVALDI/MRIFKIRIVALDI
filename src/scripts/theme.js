@@ -14,7 +14,7 @@ export function initTheme(onThemeChange) {
     toggle?.setAttribute('aria-label', isGalaxy ? 'Aktifkan Light Mode' : 'Aktifkan Galaxy Dark Mode');
     if (label) label.textContent = isGalaxy ? 'Galaxy' : 'Light';
     if (icon) icon.className = `fa-solid ${isGalaxy ? 'fa-moon' : 'fa-sun'}`;
-    themeMeta?.setAttribute('content', isGalaxy ? '#070913' : '#f8f9ff');
+    themeMeta?.setAttribute('content', isGalaxy ? '#03050b' : '#dff4ff');
     if (persist) {
       try { localStorage.setItem(THEME_KEY, isGalaxy ? 'galaxy' : 'light'); } catch (_) {}
     }

@@ -23,6 +23,8 @@ Dokumen ini adalah ringkasan aturan visual yang dipertahankan setelah prototipe 
 - Hover boleh menggeser elemen beberapa piksel dan memperkuat glow tanpa mengubah struktur layout.
 - Galaxy starfield dan robot astronot dirender dengan Three.js, mendukung gerak pointer dan `prefers-reduced-motion`.
 - Status tema disimpan pada `localStorage` dengan key `site-theme`.
+- Background light menggunakan `src/assets/images/wellpaper/welllightmode.gif`, sedangkan Galaxy mode menggunakan `welldarkmode.gif` sebagai layer fixed di belakang atmosfer dan panel kaca.
+- Material glass memakai surface yang lebih transparan, specular gradient, border bercahaya tipis, serta backdrop blur 32–34 px agar wallpaper tetap terlihat tanpa mengurangi keterbacaan.
 
 ## Sumber implementasi
 
