@@ -36,4 +36,7 @@ Dokumen ini adalah ringkasan aturan visual yang dipertahankan setelah prototipe 
 - Breakpoint: `src/styles/responsive.css`
 - Robot 3D: `src/scripts/hero-robot.js`
 - Navigasi utama memakai posisi fixed; sistem glass memakai surface transparan, blur tinggi, dan saturasi warna wallpaper. Bagian Technologies menyediakan pencarian serta filter IDE, Bahasa Pemrograman, Framework, Agent AI, Database, Office, Desain, dan Lainnya.
+- Hero memakai teks dekoratif `PORTFOLIO` dengan font Anton, warna `var(--primary)`, vertical stretch tetap `scaleY(1.7)`, dan mask transparan dari atas ke bawah.
+- Komposisi About mengganti huruf latar `R` dengan canvas 2D prisma `PORTOFOLIO`; implementasinya ada di `src/scripts/about-prism.js` dan warnanya mengikuti CSS variables tema.
+- Pemilih bahasa di navbar memakai penerjemah lokal `src/scripts/translator.js` dengan kamus `src/data/translations.js`; pilihan disimpan di browser dan bahasa Arab mengaktifkan arah RTL.
 - Galaxy background: `src/scripts/galaxy.js`

@@ -12,7 +12,18 @@
 
 .glass-tile {
   background-color: var(--surface-inset);
+  -webkit-backdrop-filter: blur(20px) saturate(175%) contrast(106%);
+  backdrop-filter: blur(20px) saturate(175%) contrast(106%);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+}
+
+.service-card,
+.tool-card,
+.project-card,
+.process-card,
+.certificate-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 280px;
 }
 
 [data-theme='galaxy'] .glass-control {
@@ -172,7 +183,7 @@
 .galaxy-canvas {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 2;
   overflow: hidden;
   pointer-events: none;
 }
@@ -187,7 +198,7 @@
 }
 
 .galaxy-canvas {
-  z-index: 1;
+  z-index: 3;
   opacity: 0;
   transition: opacity 0.8s ease;
 }

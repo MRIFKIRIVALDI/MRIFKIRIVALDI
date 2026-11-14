@@ -7,7 +7,8 @@
 .about-reference-shell {
   --about-text: #0f172a;
   --about-muted: #4b5563;
-  --about-letter: rgba(15, 23, 42, 0.82);
+  --about-prism-solid: var(--about-text);
+  --about-prism-outline: color-mix(in srgb, var(--cyan) 18%, var(--surface) 82%);
   position: relative;
   isolation: isolate;
   width: min(72rem, 100%);
@@ -20,7 +21,7 @@
 html[data-theme='galaxy'] .about-reference-shell {
   --about-text: #f8fafc;
   --about-muted: #94a3b8;
-  --about-letter: rgba(2, 6, 23, 0.72);
+  --about-prism-outline: color-mix(in srgb, var(--cyan) 28%, var(--text) 72%);
 }
 
 .about-reference-shell::before {
@@ -74,24 +75,22 @@ html[data-theme='galaxy'] .about-reference-shell {
   line-height: 1.48;
 }
 
-.about-reference-letter {
+.about-prism {
   position: absolute;
-  top: 48%;
-  left: 49%;
+  top: 58px;
+  left: 50%;
   z-index: 1;
-  color: var(--about-letter);
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(520px, 48vw, 650px);
-  font-weight: 700;
-  line-height: 0.7;
-  transform: translate(-50%, -50%);
-  text-shadow: 0 30px 80px rgba(15, 23, 42, 0.18);
+  width: 92%;
+  height: 330px;
+  transform: translate(-50%, 0.5cm);
   pointer-events: none;
 }
 
-html[data-theme='galaxy'] .about-reference-letter {
-  -webkit-text-stroke: 2px rgba(56, 189, 248, 0.16);
-  text-shadow: 0 0 70px rgba(56, 189, 248, 0.12);
+.about-prism__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .about-reference-person {
@@ -109,16 +108,20 @@ html[data-theme='galaxy'] .about-reference-letter {
 
 .about-reference-identity {
   position: absolute;
-  top: 76px;
-  right: 42px;
+  top: 34px;
+  right: 34px;
   z-index: 7;
-  width: 35%;
+  width: auto;
+  max-width: 60%;
   color: var(--about-text);
+  text-align: right;
 }
 
 .about-reference-user-icon {
+  display: block;
   width: 46px;
   margin-bottom: 22px;
+  margin-left: auto;
   color: currentColor;
 }
 
@@ -127,6 +130,7 @@ html[data-theme='galaxy'] .about-reference-letter {
   font-weight: 800;
   line-height: 0.76;
   letter-spacing: -0.055em;
+  white-space: nowrap;
 }
 
 .about-reference-identity p {
@@ -320,7 +324,6 @@ html[data-theme='galaxy'] .about-reference-dots span:nth-child(2) {
   }
 
   .about-reference-bio,
-  .about-reference-identity,
   .about-reference-skills,
   .about-reference-focus,
   .about-reference-dots {
@@ -330,12 +333,16 @@ html[data-theme='galaxy'] .about-reference-dots span:nth-child(2) {
   }
 
   .about-reference-identity {
-    order: 1;
-    text-align: center;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: auto;
+    max-width: 58%;
+    text-align: right;
   }
 
   .about-reference-user-icon {
-    margin-right: auto;
+    margin-right: 0;
     margin-left: auto;
   }
 
@@ -351,9 +358,10 @@ html[data-theme='galaxy'] .about-reference-dots span:nth-child(2) {
     transform: none;
   }
 
-  .about-reference-letter {
-    top: 39%;
-    font-size: 470px;
+  .about-prism {
+    top: 155px;
+    width: 96%;
+    height: 290px;
   }
 
   .about-reference-bio {
@@ -384,17 +392,36 @@ html[data-theme='galaxy'] .about-reference-dots span:nth-child(2) {
     padding: 24px 16px;
   }
 
+  .about-reference-identity {
+    top: 20px;
+    right: 16px;
+    width: auto;
+    max-width: 72%;
+  }
+
   .about-reference-identity h2 {
-    font-size: 46px;
+    font-size: 32px;
+    line-height: 0.82;
+  }
+
+  .about-reference-identity p {
+    margin-top: 9px;
+    font-size: 12px;
+  }
+
+  .about-reference-user-icon {
+    width: 30px;
+    margin-bottom: 12px;
   }
 
   .about-reference-person {
     height: 430px;
   }
 
-  .about-reference-letter {
-    top: 36%;
-    font-size: 390px;
+  .about-prism {
+    top: 145px;
+    width: 100%;
+    height: 235px;
   }
 
   .about-reference-skills {

@@ -9,6 +9,9 @@ export function createGalaxyController() {
   let frameId;
   let running = false;
   let initialized = false;
+  let active = false;
+  let inViewport = !('IntersectionObserver' in window);
+  let resizeFrame;
   let targetX = 0;
   let targetY = 0;
   let pointerX = 0;
@@ -29,7 +32,7 @@ export function createGalaxyController() {
     return new THREE.CanvasTexture(textureCanvas);
   }
 
-  function makeField(THREE, count, spread, size, opacity) {
+  function makeField(THREE, texture, count, spread, size, opacity) {
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
@@ -49,7 +52,7 @@ export function createGalaxyController() {
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
     return new THREE.Points(geometry, new THREE.PointsMaterial({
       size,
-      map: makeTexture(THREE),
+      map: texture,
       transparent: true,
       opacity,
       vertexColors: true,
@@ -63,13 +66,15 @@ export function createGalaxyController() {
     const THREE = window.THREE;
     try {
       renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'high-performance' });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 780 ? 1 : 1.25));
       renderer.setSize(window.innerWidth, window.innerHeight);
       scene = new THREE.Scene();
       camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 3500);
       camera.position.z = 950;
-      stars = makeField(THREE, 2600, 2500, 5.2, 1);
-      dust = makeField(THREE, 350, 2200, 9, 0.65);
+      const texture = makeTexture(THREE);
+      const mobile = window.innerWidth < 780;
+      stars = makeField(THREE, texture, mobile ? 900 : 1800, 2500, 5.2, 1);
+      dust = makeField(THREE, texture, mobile ? 140 : 240, 2200, 9, 0.65);
       scene.add(stars, dust);
       initialized = true;
       return true;
@@ -94,17 +99,34 @@ export function createGalaxyController() {
     renderer.render(scene, camera);
   }
 
-  function setActive(active) {
-    if (!canvas) return;
-    canvas.classList.toggle('is-active', active);
-    if (active && !reducedMotion.matches && initialize() && !running) {
+  function renderStaticFrame() {
+    if (!initialized) return;
+    camera.lookAt(0, 0, 0);
+    renderer.render(scene, camera);
+  }
+
+  function updateRunningState() {
+    const canRender = active && inViewport;
+    const shouldAnimate = canRender && !document.hidden && !reducedMotion.matches;
+
+    if (canRender && !initialized) initialize();
+    if (shouldAnimate && initialized && !running) {
       running = true;
       startTime = performance.now();
       frameId = requestAnimationFrame(animate);
-    } else if ((!active || reducedMotion.matches) && running) {
+    } else if (!shouldAnimate && running) {
       running = false;
       cancelAnimationFrame(frameId);
     }
+
+    if (canRender && initialized && reducedMotion.matches) renderStaticFrame();
+  }
+
+  function setActive(nextActive) {
+    if (!canvas) return;
+    active = nextActive;
+    canvas.classList.toggle('is-active', active);
+    updateRunningState();
   }
 
   window.addEventListener('pointermove', (event) => {
@@ -113,12 +135,26 @@ export function createGalaxyController() {
   }, { passive: true });
 
   window.addEventListener('resize', () => {
-    if (!initialized) return;
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(() => {
+      if (!initialized) return;
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 780 ? 1 : 1.25));
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      if (!running) renderStaticFrame();
+    });
   }, { passive: true });
 
-  reducedMotion.addEventListener?.('change', () => setActive(document.documentElement.dataset.theme === 'galaxy'));
+  const home = document.querySelector('#home');
+  if ('IntersectionObserver' in window && home) {
+    new IntersectionObserver(([entry]) => {
+      inViewport = entry.isIntersecting;
+      updateRunningState();
+    }, { threshold: 0, rootMargin: '160px 0px' }).observe(home);
+  }
+
+  document.addEventListener('visibilitychange', updateRunningState);
+  reducedMotion.addEventListener?.('change', updateRunningState);
   return { setActive };
 }

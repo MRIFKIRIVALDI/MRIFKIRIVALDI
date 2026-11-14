@@ -2,6 +2,7 @@
   color-scheme: light;
   --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-mono: 'Space Grotesk', ui-monospace, monospace;
+  --font-display: 'Anton', 'Arial Narrow', sans-serif;
   --surface: #dff4ff;
   --surface-soft: rgba(241, 250, 255, 0.2);
   --surface-strong: rgba(255, 255, 255, 0.38);
@@ -10,10 +11,9 @@
   --text-muted: #40576b;
   --border: rgba(255, 255, 255, 0.72);
   --border-muted: rgba(255, 255, 255, 0.34);
-  --wallpaper-image: url('../assets/images/wellpaper/welllightmode.gif');
   --wallpaper-overlay: linear-gradient(180deg, rgba(222, 246, 255, 0.16), rgba(231, 240, 255, 0.24));
   --glass-highlight: linear-gradient(135deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.045) 44%, rgba(125, 211, 252, 0.1));
-  --glass-blur: 38px;
+  --glass-blur: 28px;
   --primary: #5457df;
   --primary-strong: #3730a3;
   --cyan: #0891b2;
@@ -43,10 +43,9 @@
   --text-muted: #b7c6da;
   --border: rgba(255, 255, 255, 0.24);
   --border-muted: rgba(255, 255, 255, 0.13);
-  --wallpaper-image: url('../assets/images/wellpaper/welldarkmode.gif');
   --wallpaper-overlay: linear-gradient(180deg, rgba(2, 5, 12, 0.18), rgba(3, 7, 17, 0.4));
   --glass-highlight: linear-gradient(135deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.012) 44%, rgba(56, 189, 248, 0.055));
-  --glass-blur: 38px;
+  --glass-blur: 28px;
   --primary: #818cf8;
   --primary-strong: #c4b5fd;
   --cyan: #38bdf8;

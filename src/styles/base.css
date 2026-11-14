@@ -29,14 +29,26 @@ body {
 
 body::before {
   position: fixed;
-  z-index: 0;
+  z-index: 1;
   inset: 0;
-  background-color: var(--surface);
-  background-image: var(--wallpaper-overlay), var(--wallpaper-image);
+  background-image: var(--wallpaper-overlay);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   content: '';
+  filter: saturate(1.08) contrast(1.03);
+  pointer-events: none;
+}
+
+.site-wallpaper {
+  position: fixed;
+  z-index: 0;
+  display: block;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
   filter: saturate(1.08) contrast(1.03);
   pointer-events: none;
 }

@@ -46,22 +46,27 @@
       'social social';
     grid-template-columns: 1fr 1fr;
     gap: 2rem 2.5rem;
-    padding-top: 5.5rem;
+    padding-top: 3rem;
   }
   .hero__identity h1 { max-width: 9ch; }
   .hero__summary { justify-self: end; }
   .hero__visual { width: min(100%, 620px); margin: -1.5rem auto -2rem; }
   .robot-stage { height: 510px; }
-  .hero__portfolio-word { font-size: clamp(7rem, 22vw, 11rem); }
   .hero__social { margin-top: 0; }
 }
 
 @media (max-width: 780px) {
   :root { --section-space: 4.5rem; }
+  .glass { -webkit-backdrop-filter: blur(20px) saturate(165%); backdrop-filter: blur(20px) saturate(165%); }
+  .glass-tile { -webkit-backdrop-filter: blur(14px) saturate(155%); backdrop-filter: blur(14px) saturate(155%); }
+  .glass-control { -webkit-backdrop-filter: blur(14px) saturate(155%); backdrop-filter: blur(14px) saturate(155%); }
   .site-shell { width: min(100% - 2rem, var(--page-width)); padding-top: calc(1.5rem + 62px); }
   .site-header { grid-template-columns: 1fr auto auto; width: min(100% - 2rem, var(--page-width)); min-height: 62px; padding: 0.55rem 0.65rem 0.55rem 0.75rem; }
   .brand__copy small { display: none; }
   .button--compact { display: none; }
+  .language-picker { width: 48px; justify-content: center; padding: 0; }
+  .language-picker i { display: none; }
+  .language-picker select { width: 42px; padding: 0 0.2rem; font-size: 0.57rem; }
   .theme-toggle { width: 38px; padding: 0; }
   .theme-toggle span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .theme-toggle::after { content: '☀'; color: var(--amber); font-size: 0.9rem; }
@@ -76,7 +81,7 @@
     grid-template-columns: 1fr;
     gap: 2.5rem;
     min-height: auto;
-    padding-top: 5rem;
+    padding-top: 2.75rem;
   }
   .hero::before { inset-inline: -1rem; }
   .hero__identity,
@@ -88,7 +93,6 @@
   .social-links { justify-content: center; }
   .hero__visual { width: min(100%, 540px); margin: -2rem auto -1rem; }
   .robot-stage { height: 500px; }
-  .hero__portfolio-word { font-size: clamp(6rem, 25vw, 10rem); }
   .contact { grid-template-columns: 1fr; }
   .service-card { grid-column: span 6; }
   .project-card { grid-column: span 12; min-height: 450px; }
@@ -114,7 +118,6 @@
   .social-links a { font-size: 1rem; }
   .hero__visual { width: min(100%, 360px); }
   .robot-stage { width: 100%; height: 430px; }
-  .hero__portfolio-word { top: 46%; font-size: clamp(5.2rem, 27vw, 7.5rem); }
   .robot-status { top: 11%; left: 0.2rem; }
   .metric-card--credential { top: 8%; right: 0; min-width: 92px; padding: 0.7rem; }
   .metric-card--credential strong { font-size: 1.5rem; }

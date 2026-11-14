@@ -9,6 +9,7 @@ import {
   tools,
   valueMarquee,
 } from '../data/content.js';
+import { translateRuntimeText } from './translator.js';
 
 const setHTML = (selector, markup) => {
   const element = document.querySelector(selector);
@@ -17,7 +18,7 @@ const setHTML = (selector, markup) => {
 
 const icon = (className) => `<i class="${className}" aria-hidden="true"></i>`;
 const assetImage = (source, alt, className = '') => `<img class="${className}" src="${source}" alt="${alt}" loading="lazy" decoding="async" />`;
-const toolImage = (source, alt, className) => `<img class="${className}" src="${source}" alt="${alt}" decoding="async" />`;
+const toolImage = (source, alt, className) => `<img class="${className}" src="${source}" alt="${alt}" loading="lazy" decoding="async" fetchpriority="low" />`;
 
 export function renderContent() {
   setHTML('#social-links', socialLinks.map((item) => `
@@ -133,7 +134,11 @@ function initToolsBrowser() {
       if (visible) visibleCount += 1;
     });
 
-    if (result) result.textContent = `${visibleCount} teknologi ditampilkan`;
+    if (result) {
+      result.dataset.i18nDynamic = 'tools-count';
+      result.dataset.i18nCount = String(visibleCount);
+      result.textContent = translateRuntimeText(`${visibleCount} teknologi ditampilkan`);
+    }
     if (empty) empty.hidden = visibleCount !== 0;
   };
 

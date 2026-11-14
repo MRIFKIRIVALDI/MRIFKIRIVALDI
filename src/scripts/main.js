@@ -1,10 +1,16 @@
+import { createAboutPrism } from './about-prism.js';
 import { createGalaxyController } from './galaxy.js';
+import { initGlassSelect } from './glass-select.js';
 import { createHeroRobot } from './hero-robot.js';
 import { renderContent } from './render.js';
 import { initTheme } from './theme.js';
+import { initTranslator } from './translator.js';
 
 renderContent();
 
+initTranslator();
+initGlassSelect();
+createAboutPrism();
 const galaxy = createGalaxyController();
 const heroRobot = createHeroRobot();
 initTheme((isGalaxy) => {

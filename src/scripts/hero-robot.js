@@ -1,6 +1,8 @@
+import { MeshoptDecoder } from '../vendor/three/meshopt_decoder.mjs';
+
 const MODEL_URLS = {
-  light: new URL('../assets/images/3d_object/pesawat3d.glb', import.meta.url).href,
-  galaxy: new URL('../assets/images/3d_object/astronot3d.glb', import.meta.url).href,
+  light: new URL('../assets/images/3d_object/pesawat3d-compressed.glb', import.meta.url).href,
+  galaxy: new URL('../assets/images/3d_object/astronot3d-compressed.glb', import.meta.url).href,
 };
 
 const MODEL_LABELS = {
@@ -26,6 +28,7 @@ export function createHeroRobot() {
 
   const THREE = window.THREE;
   const loader = new THREE.GLTFLoader();
+  loader.setMeshoptDecoder(MeshoptDecoder);
   const clockStart = performance.now();
   const models = new Map();
   const pendingModels = new Map();
@@ -258,9 +261,6 @@ export function createHeroRobot() {
       updateStatus(MODEL_LABELS[theme]);
       render();
 
-      if (theme === 'galaxy') {
-        window.setTimeout(() => ensureModel('light').catch(() => {}), 900);
-      }
     } catch (error) {
       if (sequence !== loadSequence) return;
       stage.classList.remove('is-loading');
@@ -297,6 +297,8 @@ export function createHeroRobot() {
     if (!renderer) return;
     const width = Math.max(stage.clientWidth, 1);
     const height = Math.max(stage.clientHeight, 1);
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, window.innerWidth < 780 ? 1 : 1.35);
+    if (renderer.getPixelRatio() !== pixelRatio) renderer.setPixelRatio(pixelRatio);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height, false);
@@ -478,10 +480,10 @@ export function createHeroRobot() {
     renderer = new THREE.WebGLRenderer({
       canvas,
       alpha: true,
-      antialias: true,
+      antialias: window.innerWidth >= 600,
       powerPreference: 'high-performance',
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.6));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 780 ? 1 : 1.35));
     renderer.setClearColor(0x000000, 0);
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -586,7 +588,7 @@ export function createHeroRobot() {
     setGalaxyMode(isGalaxy) {
       const theme = isGalaxy ? 'galaxy' : 'light';
       renderer.toneMappingExposure = isGalaxy ? 1.28 : 1.1;
-      showThemeModel(theme);
+      if (theme !== activeTheme || (!activeModel && !pendingModels.has(theme))) showThemeModel(theme);
     },
   };
 }

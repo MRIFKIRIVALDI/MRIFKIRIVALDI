@@ -7,11 +7,16 @@ const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const failures = [];
 const sourceFiles = [
   'src/data/content.js',
+  'src/data/translations.js',
+  'src/scripts/about-prism.js',
   'src/scripts/galaxy.js',
+  'src/scripts/glass-select.js',
   'src/scripts/hero-robot.js',
   'src/scripts/main.js',
   'src/scripts/render.js',
   'src/scripts/theme.js',
+  'src/scripts/translator.js',
+  'src/vendor/three/meshopt_decoder.mjs',
   'scripts/build.mjs',
   'scripts/check.mjs',
   'scripts/clean.mjs',
