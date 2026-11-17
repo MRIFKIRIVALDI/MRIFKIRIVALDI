@@ -20,6 +20,7 @@ const mimeTypes = {
   '.svg': 'image/svg+xml',
   '.webm': 'video/webm',
   '.webp': 'image/webp',
+  '.wasm': 'application/wasm',
 };
 
 const server = createServer((request, response) => {

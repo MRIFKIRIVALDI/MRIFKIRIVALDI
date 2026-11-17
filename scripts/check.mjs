@@ -15,6 +15,7 @@ const sourceFiles = [
   'src/scripts/main.js',
   'src/scripts/render.js',
   'src/scripts/theme.js',
+  'src/scripts/three-runtime.js',
   'src/scripts/translator.js',
   'src/vendor/three/meshopt_decoder.mjs',
   'scripts/build.mjs',

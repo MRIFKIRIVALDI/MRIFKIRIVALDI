@@ -2,7 +2,7 @@ import { MeshoptDecoder } from '../vendor/three/meshopt_decoder.mjs';
 
 const MODEL_URLS = {
   light: new URL('../assets/images/3d_object/pesawat3d-compressed.glb', import.meta.url).href,
-  galaxy: new URL('../assets/images/3d_object/astronot3d-compressed.glb', import.meta.url).href,
+  galaxy: new URL('../assets/images/3d_object/astronot.glb', import.meta.url).href,
 };
 
 const MODEL_LABELS = {
@@ -29,6 +29,9 @@ export function createHeroRobot() {
   const THREE = window.THREE;
   const loader = new THREE.GLTFLoader();
   loader.setMeshoptDecoder(MeshoptDecoder);
+  const dracoLoader = new THREE.DRACOLoader();
+  dracoLoader.setDecoderPath(new URL('../vendor/three/draco/', import.meta.url).href);
+  loader.setDRACOLoader(dracoLoader);
   const clockStart = performance.now();
   const models = new Map();
   const pendingModels = new Map();

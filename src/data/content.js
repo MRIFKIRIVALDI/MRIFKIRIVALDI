@@ -1,8 +1,8 @@
 export const socialLinks = [
-  { label: 'GitHub', image: './src/assets/images/icons/github.png', url: 'https://github.com/MRIFKIRIVALDI' },
-  { label: 'LinkedIn', image: './src/assets/images/icons/linkedin.png', url: 'https://www.linkedin.com/in/m-rifki-rivaldi-091b49390/' },
-  { label: 'Instagram', image: './src/assets/images/icons/instagram.png', url: 'https://www.instagram.com/rifkiikrif/' },
-  { label: 'WhatsApp', image: './src/assets/images/icons/whatsapp.png', url: 'https://wa.me/6281296876716' },
+  { label: 'GitHub', image: './src/assets/images/icons/github.webp', url: 'https://github.com/MRIFKIRIVALDI' },
+  { label: 'LinkedIn', image: './src/assets/images/icons/linkedin.webp', url: 'https://www.linkedin.com/in/m-rifki-rivaldi-091b49390/' },
+  { label: 'Instagram', image: './src/assets/images/icons/instagram.webp', url: 'https://www.instagram.com/rifkiikrif/' },
+  { label: 'WhatsApp', image: './src/assets/images/icons/whatsapp.webp', url: 'https://wa.me/6281296876716' },
 ];
 
 export const services = [
@@ -157,15 +157,20 @@ export const processSteps = [
 ];
 
 export const certificates = [
-  { issuer: 'IT Specialist', title: 'Python Certified', detail: 'Information Technology Specialist', image: './src/assets/images/certificates/its-python-2024.jpg', accent: 'blue' },
-  { issuer: 'Komdigi DTS 2025', title: 'VSGA — IoT Engineer', detail: 'Perekayasa Perangkat Internet of Things', image: './src/assets/images/certificates/komdigi-iot-engineer-2025.jpg', accent: 'iris' },
-  { issuer: 'Database Foundations', title: 'Oracle Academy', detail: 'Database Foundations — ID', image: './src/assets/images/certificates/oracle-database-foundations-2025.jpg', accent: 'rose' },
-  { issuer: 'Cloud Computing', title: 'AWS Academy', detail: 'AWS Academy Cloud Foundations', image: './src/assets/images/certificates/aws-cloud-foundations-2025.jpg', accent: 'amber' },
-  { issuer: 'Cyber Security', title: 'Workshop TI', detail: 'Keamanan Jaringan & Cyber Defense', image: './src/assets/images/certificates/cybersecurity-workshop-2024.jpg', accent: 'cyan' },
-  { issuer: 'AI & Hardware', title: 'Workshop TE', detail: 'AIoT & Neural Network MCU', image: './src/assets/images/certificates/aiot-neural-network-2025.jpg', accent: 'violet' },
-  { issuer: 'SENTIMETER 2024', title: 'AI-Powered Cyber Defense', detail: 'Seminar Nasional Teknologi Informasi', image: './src/assets/images/certificates/ai-cyber-defense-seminar-2024.jpg', accent: 'cyan' },
-  { issuer: 'ICITACS 2025', title: 'International Conference', detail: 'Information Technology & Advanced Computer Science', image: './src/assets/images/certificates/icitacs-2025.jpg', accent: 'rose' },
-  { issuer: 'SISMATIK 2025', title: 'AI in Information Systems', detail: 'Enhancing Efficiency and Innovation', image: './src/assets/images/certificates/ai-information-systems-2025.jpg', accent: 'blue' },
+  { issuer: 'IT Specialist', title: 'Python Certified', detail: 'Information Technology Specialist', image: './src/assets/images/certificates/its-python-2024.webp', accent: 'blue' },
+  { issuer: 'Komdigi DTS 2025', title: 'VSGA — IoT Engineer', detail: 'Perekayasa Perangkat Internet of Things', image: './src/assets/images/certificates/komdigi-iot-engineer-2025.webp', accent: 'iris' },
+  { issuer: 'Database Foundations', title: 'Oracle Academy', detail: 'Database Foundations — ID', image: './src/assets/images/certificates/oracle-database-foundations-2025.webp', accent: 'rose' },
+  { issuer: 'Cloud Computing', title: 'AWS Academy', detail: 'AWS Academy Cloud Foundations', image: './src/assets/images/certificates/aws-cloud-foundations-2025.webp', accent: 'amber' },
+  { issuer: 'Cyber Security', title: 'Workshop TI', detail: 'Keamanan Jaringan & Cyber Defense', image: './src/assets/images/certificates/cybersecurity-workshop-2024.webp', accent: 'cyan' },
+  { issuer: 'AI & Hardware', title: 'Workshop TE', detail: 'AIoT & Neural Network MCU', image: './src/assets/images/certificates/aiot-neural-network-2025.webp', accent: 'violet' },
+  { issuer: 'SENTIMETER 2024', title: 'AI-Powered Cyber Defense', detail: 'Seminar Nasional Teknologi Informasi', image: './src/assets/images/certificates/ai-cyber-defense-seminar-2024.webp', accent: 'cyan' },
+  { issuer: 'ICITACS 2025', title: 'International Conference', detail: 'Information Technology & Advanced Computer Science', image: './src/assets/images/certificates/icitacs-2025.webp', accent: 'rose' },
+  { issuer: 'SISMATIK 2025', title: 'AI in Information Systems', detail: 'Enhancing Efficiency and Innovation', image: './src/assets/images/certificates/ai-information-systems-2025.webp', accent: 'blue' },
+  { issuer: 'British Council EnglishScore', title: 'English Core Skills', detail: 'CEFR A2 — Score 220', image: './src/assets/images/certificates/englishscore_ESBC-2026.webp', accent: 'cyan' },
+  { issuer: 'ICONTENTION 2026', title: 'International Conference', detail: 'Consumer Technology & Engineering Innovation', image: './src/assets/images/certificates/icontention-2026.webp', accent: 'rose' },
+  { issuer: 'RSP Sensei 2026', title: 'Japanese Language N5', detail: 'Certificate of Participation — Batch 18', image: './src/assets/images/certificates/japan-course-2026.webp', accent: 'blue' },
+  { issuer: 'The Energetic EPDC', title: 'Public Speaking', detail: 'Novice Level — Certificate of Achievement', image: './src/assets/images/certificates/public-speaking-2025.webp', accent: 'amber' },
+  { issuer: 'Bina Cipta Seleksindo', title: 'Tes Potensi Akademik', detail: 'Laporan Skor TPA — 513,67', image: './src/assets/images/certificates/TPA-TKDA-2026.webp', accent: 'iris' },
 ];
 
 export const skillMarquee = ['Web Development', 'IoT Engineering', 'Cloud Computing', 'Network Security', 'UI/UX Design', 'Full-Stack Solutions', 'Three.js & 3D Experiences'];
