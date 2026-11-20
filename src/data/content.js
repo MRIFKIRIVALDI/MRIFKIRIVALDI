@@ -2,7 +2,7 @@ export const socialLinks = [
   { label: 'GitHub', image: './src/assets/images/icons/github.webp', url: 'https://github.com/MRIFKIRIVALDI' },
   { label: 'LinkedIn', image: './src/assets/images/icons/linkedin.webp', url: 'https://www.linkedin.com/in/m-rifki-rivaldi-091b49390/' },
   { label: 'Instagram', image: './src/assets/images/icons/instagram.webp', url: 'https://www.instagram.com/rifkiikrif/' },
-  { label: 'WhatsApp', image: './src/assets/images/icons/whatsapp.webp', url: 'https://wa.me/6281296876716' },
+  { label: 'WhatsApp', image: './src/assets/images/icons/whatsapp.webp', url: 'https://wa.me/6281511388367' },
 ];
 
 export const services = [
@@ -14,18 +14,18 @@ export const services = [
     accent: 'amber',
   },
   {
+    title: 'IT Support',
+    description: 'Dukungan teknis untuk hardware dan software, instalasi sistem, troubleshooting, pemeliharaan perangkat, dan bantuan pengguna.',
+    footer: 'Technical Support',
+    icon: 'fa-solid fa-headset',
+    accent: 'cyan',
+  },
+  {
     title: 'IoT Engineering',
     description: 'Integrasi hardware, Arduino, ESP32, telemetri sensor, RFID, dan pipeline otomasi pintar.',
     footer: 'Hardware & AIoT',
     icon: 'fa-solid fa-microchip',
     accent: 'violet',
-  },
-  {
-    title: 'Network & Security',
-    description: 'Topologi jaringan, konfigurasi Cisco, protokol firewall, troubleshooting, dan analisis cyber defense.',
-    footer: 'Infrastructure',
-    icon: 'fa-solid fa-network-wired',
-    accent: 'cyan',
   },
   {
     title: 'Design & Digital Media',
@@ -87,14 +87,14 @@ export const tools = [
 
 export const projects = [
   {
-    title: 'Feed IG KKN Desa Cikadu',
-    category: 'Graphic Design',
-    badge: 'KKN Desa Cikadu 2025',
-    description: 'Publikasi visual Instagram selama satu bulan menggunakan CorelDraw dan Canva dengan sistem desain yang konsisten.',
-    stack: 'CorelDraw • Canva',
-    images: ['./src/assets/images/projects/kkn-feed-01.jpg', './src/assets/images/projects/kkn-feed-02.jpg', './src/assets/images/projects/kkn-feed-03.jpg'],
-    accent: 'rose',
-    url: 'https://www.instagram.com/kkn.cikadu2025/',
+    title: 'Harris Electronic',
+    category: 'Company Profile',
+    badge: 'E-Commerce Profile',
+    description: 'Company profile yang menyajikan katalog produk, layanan, dan kredibilitas bisnis secara komprehensif.',
+    stack: 'Responsive • Catalog',
+    images: ['./src/assets/images/projects/harris-electronic.png'],
+    accent: 'emerald',
+    url: 'https://www.harriselectronic.store/',
   },
   {
     title: 'Go Pesantren',
@@ -117,14 +117,14 @@ export const projects = [
     url: 'https://portofolio-murex-kappa-70.vercel.app/',
   },
   {
-    title: 'Harris Electronic',
-    category: 'Company Profile',
-    badge: 'E-Commerce Profile',
-    description: 'Company profile yang menyajikan katalog produk, layanan, dan kredibilitas bisnis secara komprehensif.',
-    stack: 'Responsive • Catalog',
-    images: ['./src/assets/images/projects/harris-electronic.png'],
-    accent: 'emerald',
-    url: 'https://www.harriselectronic.store/',
+    title: 'Feed IG KKN Desa Cikadu',
+    category: 'Graphic Design',
+    badge: 'KKN Desa Cikadu 2025',
+    description: 'Publikasi visual Instagram selama satu bulan menggunakan CorelDraw dan Canva dengan sistem desain yang konsisten.',
+    stack: 'CorelDraw • Canva',
+    images: ['./src/assets/images/projects/kkn-feed-01.jpg', './src/assets/images/projects/kkn-feed-02.jpg', './src/assets/images/projects/kkn-feed-03.jpg'],
+    accent: 'rose',
+    url: 'https://www.instagram.com/kkn.cikadu2025/',
   },
   {
     title: 'Sistem Parkir Otomatis',

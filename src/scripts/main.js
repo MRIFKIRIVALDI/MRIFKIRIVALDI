@@ -84,9 +84,10 @@ contactForm?.addEventListener('submit', (event) => {
   const email = document.querySelector('#contact-email').value.trim();
   const service = document.querySelector('#contact-service').value;
   const message = document.querySelector('#contact-message').value.trim();
-  const subject = encodeURIComponent(`Project Inquiry — ${service}`);
-  const body = encodeURIComponent(`Halo Rifki,\n\nNama: ${name}\nEmail: ${email}\nLayanan: ${service}\n\n${message}`);
-  window.location.href = `mailto:rifki200804@gmail.com?subject=${subject}&body=${body}`;
+  const whatsappMessage = encodeURIComponent(
+    `Halo Rifki,\n\nNama: ${name}\nEmail: ${email}\nLayanan: ${service}\n\n${message}`,
+  );
+  window.location.href = `https://wa.me/6281511388367?text=${whatsappMessage}`;
 });
 
 const revealItems = document.querySelectorAll('.reveal');
